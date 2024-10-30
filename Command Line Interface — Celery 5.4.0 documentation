@@ -1,0 +1,2618 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://docs.celeryq.dev/en/v5.4.0/reference/cli.html
+Subject: =?utf-8?Q?Command=20Line=20Interface=20=E2=80=94=20Celery=205.4.0=20docum?=
+ =?utf-8?Q?entation?=
+Date: Tue, 29 Oct 2024 16:28:15 -1000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--mS6LKizeQ8IE5y3xAQoqRLsux71kipjNUs9WpsmKX0----"
+
+
+------MultipartBoundary--mS6LKizeQ8IE5y3xAQoqRLsux71kipjNUs9WpsmKX0----
+Content-Type: text/html
+Content-ID: <frame-0E225D7908E688368CFDD0735F30DB3B@mhtml.blink>
+Content-Transfer-Encoding: binary
+Content-Location: https://docs.celeryq.dev/en/v5.4.0/reference/cli.html
+
+<!DOCTYPE html><html lang="en" data-content_root="../"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="cid:css-dda9a4a4-5738-408b-a9e6-cdd2e03db0a4@mhtml.blink" /><link rel="stylesheet" type="text/css" href="cid:css-3d89fa97-23c5-4420-a41d-3745341879cb@mhtml.blink" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Command Line Interface â€” Celery 5.4.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="https://docs.celeryq.dev/en/v5.4.0/_static/pygments.css?v=82a976d7">
+    <link rel="stylesheet" type="text/css" href="https://docs.celeryq.dev/en/v5.4.0/_static/celery.css?v=9ab87318">
+    
+    
+    
+    
+    
+    <link rel="icon" href="https://docs.celeryq.dev/en/v5.4.0/_static/favicon.ico">
+    <link rel="index" title="Index" href="https://docs.celeryq.dev/en/v5.4.0/genindex.html">
+    <link rel="search" title="Search" href="https://docs.celeryq.dev/en/v5.4.0/search.html">
+    <link rel="copyright" title="Copyright" href="https://docs.celeryq.dev/en/v5.4.0/copyright.html">
+    <link rel="next" title="celery â€” Distributed processing" href="https://docs.celeryq.dev/en/v5.4.0/reference/celery.html">
+    <link rel="prev" title="API Reference" href="https://docs.celeryq.dev/en/v5.4.0/reference/index.html"> 
+  
+<!-- RTD Extra Head -->
+
+
+
+
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+
+
+
+
+<!-- end RTD <extrahead> -->
+<meta name="readthedocs-project-slug" content="celery"><meta name="readthedocs-version-slug" content="v5.4.0"><meta name="readthedocs-resolver-filename" content="/reference/cli.html"><meta name="readthedocs-http-status" content="200"></head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://docs.celeryq.dev/en/v5.4.0/genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="https://docs.celeryq.dev/en/v5.4.0/py-modindex.html" title="Python Module Index">modules</a> |</li>
+        <li class="right">
+          <a href="https://docs.celeryq.dev/en/v5.4.0/reference/celery.html" title="celery â€” Distributed processing" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="https://docs.celeryq.dev/en/v5.4.0/reference/index.html" title="API Reference" accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="https://docs.celeryq.dev/en/v5.4.0/index.html">Celery 5.4.0 documentation</a> Â»</li>
+          <li class="nav-item nav-item-1"><a href="https://docs.celeryq.dev/en/v5.4.0/reference/index.html" accesskey="U">API Reference</a> Â»</li>
+        <li class="nav-item nav-item-this"><a href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html">Command Line Interface</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+<div class="deck">
+
+    
+        <p>
+        This document describes the current stable version of Celery (5.4).
+        For development docs,
+        <a href="https://docs.celeryq.dev/en/main/reference/cli.html">go here</a>.
+        </p>
+    
+
+</div>
+    <section id="command-line-interface">
+<h1>Command Line Interface<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#command-line-interface" title="Link to this heading">Â¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The prefix <cite>CELERY_</cite> must be added to the names of the environment
+variables described below. E.g., <cite>APP</cite> becomes <cite>CELERY_APP</cite>.</p>
+</div>
+<section id="celery">
+<h2>celery<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery" title="Link to this heading">Â¶</a></h2>
+<p>Celery command entrypoint.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-A">
+<span id="cmdoption-celery-app"></span><span class="sig-name descname"><span class="pre">-A</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--app</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;app&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-A" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-b">
+<span id="cmdoption-celery-broker"></span><span class="sig-name descname"><span class="pre">-b</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--broker</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;broker&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-b" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-result-backend">
+<span class="sig-name descname"><span class="pre">--result-backend</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;result_backend&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-result-backend" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-loader">
+<span class="sig-name descname"><span class="pre">--loader</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;loader&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-loader" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-config">
+<span class="sig-name descname"><span class="pre">--config</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;config&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-config" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-workdir">
+<span class="sig-name descname"><span class="pre">--workdir</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;workdir&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-workdir" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-C">
+<span id="cmdoption-celery-no-color"></span><span class="sig-name descname"><span class="pre">-C</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-color</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-C" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-q">
+<span id="cmdoption-celery-quiet"></span><span class="sig-name descname"><span class="pre">-q</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--quiet</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-q" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-version">
+<span class="sig-name descname"><span class="pre">--version</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-version" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-skip-checks">
+<span class="sig-name descname"><span class="pre">--skip-checks</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-skip-checks" title="Link to this definition">Â¶</a></dt>
+<dd><p>Skip Django core checks on startup. Setting the SKIP_CHECKS environment variable to any non-empty string will have the same effect.</p>
+</dd></dl>
+
+<p class="rubric">Environment variables</p>
+<dl class="std envvar" id="celery-app-app">
+<dt class="sig sig-object std">
+<span class="sig-name descname"><span class="pre">APP</span></span></dt>
+<dd><blockquote>
+<div><p>Provide a default for <a class="reference internal" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-A"><code class="xref std std-option docutils literal notranslate"><span class="pre">-A</span></code></a></p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="std envvar" id="celery-broker-broker-url">
+<dt class="sig sig-object std">
+<span class="sig-name descname"><span class="pre">BROKER_URL</span></span></dt>
+<dd><blockquote>
+<div><p>Provide a default for <a class="reference internal" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-b"><code class="xref std std-option docutils literal notranslate"><span class="pre">-b</span></code></a></p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="std envvar" id="celery-result-backend-result-backend">
+<dt class="sig sig-object std">
+<span class="sig-name descname"><span class="pre">RESULT_BACKEND</span></span></dt>
+<dd><blockquote>
+<div><p>Provide a default for <a class="reference internal" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-result-backend"><code class="xref std std-option docutils literal notranslate"><span class="pre">--result-backend</span></code></a></p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="std envvar" id="celery-loader-loader">
+<dt class="sig sig-object std">
+<span class="sig-name descname"><span class="pre">LOADER</span></span></dt>
+<dd><blockquote>
+<div><p>Provide a default for <a class="reference internal" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-loader"><code class="xref std std-option docutils literal notranslate"><span class="pre">--loader</span></code></a></p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="std envvar" id="celery-config-config-module">
+<dt class="sig sig-object std">
+<span class="sig-name descname"><span class="pre">CONFIG_MODULE</span></span></dt>
+<dd><blockquote>
+<div><p>Provide a default for <a class="reference internal" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-config"><code class="xref std std-option docutils literal notranslate"><span class="pre">--config</span></code></a></p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="std envvar" id="celery-no-color-no-color">
+<dt class="sig sig-object std">
+<span class="sig-name descname"><span class="pre">NO_COLOR</span></span></dt>
+<dd><blockquote>
+<div><p>Provide a default for <a class="reference internal" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-C"><code class="xref std std-option docutils literal notranslate"><span class="pre">-C</span></code></a></p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="std envvar" id="celery-skip-checks-skip-checks">
+<dt class="sig sig-object std">
+<span class="sig-name descname"><span class="pre">SKIP_CHECKS</span></span></dt>
+<dd><blockquote>
+<div><p>Provide a default for <a class="reference internal" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-skip-checks"><code class="xref std std-option docutils literal notranslate"><span class="pre">--skip-checks</span></code></a></p>
+</div></blockquote>
+</dd></dl>
+
+<section id="celery-amqp">
+<h3>amqp<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-amqp" title="Link to this heading">Â¶</a></h3>
+<p>AMQP Administration Shell.</p>
+<p>Also works for non-AMQP transports (but not ones that
+store declarations in memory).</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>amqp<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<section id="celery-amqp-basic-ack">
+<h4>basic.ack<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-amqp-basic-ack" title="Link to this heading">Â¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>amqp<span class="w"> </span>basic.ack<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>DELIVERY_TAG
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-basic.ack-arg-DELIVERY_TAG">
+<span class="sig-name descname"><span class="pre">DELIVERY_TAG</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-basic.ack-arg-DELIVERY_TAG" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="celery-amqp-basic-get">
+<h4>basic.get<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-amqp-basic-get" title="Link to this heading">Â¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>amqp<span class="w"> </span>basic.get<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>QUEUE<span class="w"> </span><span class="o">[</span>NO_ACK<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-basic.get-arg-QUEUE">
+<span class="sig-name descname"><span class="pre">QUEUE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-basic.get-arg-QUEUE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-basic.get-arg-NO_ACK">
+<span class="sig-name descname"><span class="pre">NO_ACK</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-basic.get-arg-NO_ACK" title="Link to this definition">Â¶</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+</section>
+<section id="celery-amqp-basic-publish">
+<h4>basic.publish<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-amqp-basic-publish" title="Link to this heading">Â¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>amqp<span class="w"> </span>basic.publish<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>MSG<span class="w"> </span>EXCHANGE<span class="w"> </span>ROUTING_KEY<span class="w"> </span><span class="o">[</span>MANDATORY<span class="o">]</span>
+<span class="w">                          </span><span class="o">[</span>IMMEDIATE<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-basic.publish-arg-MSG">
+<span class="sig-name descname"><span class="pre">MSG</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-basic.publish-arg-MSG" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-basic.publish-arg-EXCHANGE">
+<span class="sig-name descname"><span class="pre">EXCHANGE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-basic.publish-arg-EXCHANGE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-basic.publish-arg-ROUTING_KEY">
+<span class="sig-name descname"><span class="pre">ROUTING_KEY</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-basic.publish-arg-ROUTING_KEY" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-basic.publish-arg-MANDATORY">
+<span class="sig-name descname"><span class="pre">MANDATORY</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-basic.publish-arg-MANDATORY" title="Link to this definition">Â¶</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-basic.publish-arg-IMMEDIATE">
+<span class="sig-name descname"><span class="pre">IMMEDIATE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-basic.publish-arg-IMMEDIATE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+</section>
+<section id="celery-amqp-exchange-declare">
+<h4>exchange.declare<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-amqp-exchange-declare" title="Link to this heading">Â¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>amqp<span class="w"> </span>exchange.declare<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>EXCHANGE<span class="w"> </span>TYPE<span class="w"> </span><span class="o">[</span>PASSIVE<span class="o">]</span><span class="w"> </span><span class="o">[</span>DURABLE<span class="o">]</span>
+<span class="w">                             </span><span class="o">[</span>AUTO_DELETE<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-exchange.declare-arg-EXCHANGE">
+<span class="sig-name descname"><span class="pre">EXCHANGE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-exchange.declare-arg-EXCHANGE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-exchange.declare-arg-TYPE">
+<span class="sig-name descname"><span class="pre">TYPE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-exchange.declare-arg-TYPE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-exchange.declare-arg-PASSIVE">
+<span class="sig-name descname"><span class="pre">PASSIVE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-exchange.declare-arg-PASSIVE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-exchange.declare-arg-DURABLE">
+<span class="sig-name descname"><span class="pre">DURABLE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-exchange.declare-arg-DURABLE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-exchange.declare-arg-AUTO_DELETE">
+<span class="sig-name descname"><span class="pre">AUTO_DELETE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-exchange.declare-arg-AUTO_DELETE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+</section>
+<section id="celery-amqp-exchange-delete">
+<h4>exchange.delete<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-amqp-exchange-delete" title="Link to this heading">Â¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>amqp<span class="w"> </span>exchange.delete<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>EXCHANGE<span class="w"> </span>IF_UNUSED
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-exchange.delete-arg-EXCHANGE">
+<span class="sig-name descname"><span class="pre">EXCHANGE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-exchange.delete-arg-EXCHANGE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-exchange.delete-arg-IF_UNUSED">
+<span class="sig-name descname"><span class="pre">IF_UNUSED</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-exchange.delete-arg-IF_UNUSED" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="celery-amqp-queue-bind">
+<h4>queue.bind<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-amqp-queue-bind" title="Link to this heading">Â¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>amqp<span class="w"> </span>queue.bind<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>QUEUE<span class="w"> </span>EXCHANGE<span class="w"> </span>ROUTING_KEY
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-queue.bind-arg-QUEUE">
+<span class="sig-name descname"><span class="pre">QUEUE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-queue.bind-arg-QUEUE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-queue.bind-arg-EXCHANGE">
+<span class="sig-name descname"><span class="pre">EXCHANGE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-queue.bind-arg-EXCHANGE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-queue.bind-arg-ROUTING_KEY">
+<span class="sig-name descname"><span class="pre">ROUTING_KEY</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-queue.bind-arg-ROUTING_KEY" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="celery-amqp-queue-declare">
+<h4>queue.declare<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-amqp-queue-declare" title="Link to this heading">Â¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>amqp<span class="w"> </span>queue.declare<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>QUEUE<span class="w"> </span><span class="o">[</span>PASSIVE<span class="o">]</span><span class="w"> </span><span class="o">[</span>DURABLE<span class="o">]</span><span class="w"> </span><span class="o">[</span>AUTO_DELETE<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-queue.declare-arg-QUEUE">
+<span class="sig-name descname"><span class="pre">QUEUE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-queue.declare-arg-QUEUE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-queue.declare-arg-PASSIVE">
+<span class="sig-name descname"><span class="pre">PASSIVE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-queue.declare-arg-PASSIVE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-queue.declare-arg-DURABLE">
+<span class="sig-name descname"><span class="pre">DURABLE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-queue.declare-arg-DURABLE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-queue.declare-arg-AUTO_DELETE">
+<span class="sig-name descname"><span class="pre">AUTO_DELETE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-queue.declare-arg-AUTO_DELETE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+</section>
+<section id="celery-amqp-queue-delete">
+<h4>queue.delete<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-amqp-queue-delete" title="Link to this heading">Â¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>amqp<span class="w"> </span>queue.delete<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>QUEUE<span class="w"> </span><span class="o">[</span>IF_UNUSED<span class="o">]</span><span class="w"> </span><span class="o">[</span>IF_EMPTY<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-queue.delete-arg-QUEUE">
+<span class="sig-name descname"><span class="pre">QUEUE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-queue.delete-arg-QUEUE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-queue.delete-arg-IF_UNUSED">
+<span class="sig-name descname"><span class="pre">IF_UNUSED</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-queue.delete-arg-IF_UNUSED" title="Link to this definition">Â¶</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-queue.delete-arg-IF_EMPTY">
+<span class="sig-name descname"><span class="pre">IF_EMPTY</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-queue.delete-arg-IF_EMPTY" title="Link to this definition">Â¶</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+</section>
+<section id="celery-amqp-queue-purge">
+<h4>queue.purge<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-amqp-queue-purge" title="Link to this heading">Â¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>amqp<span class="w"> </span>queue.purge<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>QUEUE
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-amqp-queue.purge-arg-QUEUE">
+<span class="sig-name descname"><span class="pre">QUEUE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-amqp-queue.purge-arg-QUEUE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="celery-amqp-repl">
+<h4>repl<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-amqp-repl" title="Link to this heading">Â¶</a></h4>
+<p>Start an interactive shell. All subcommands are available in it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">param old_ctx<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current Click context.</p>
+</dd>
+<dt class="field-even">param prompt_kwargs<span class="colon">:</span></dt>
+<dd class="field-even"><p>Parameters passed to
+<code class="xref py py-func docutils literal notranslate"><span class="pre">prompt_toolkit.PromptSession()</span></code>.</p>
+</dd>
+</dl>
+<p>If stdin is not a TTY, no prompt will be printed, but only commands read
+from stdin.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>amqp<span class="w"> </span>repl<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="celery-beat">
+<h3>beat<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-beat" title="Link to this heading">Â¶</a></h3>
+<p>Start the beat periodic task scheduler.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>beat<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-beat-detach">
+<span class="sig-name descname"><span class="pre">--detach</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-beat-detach" title="Link to this definition">Â¶</a></dt>
+<dd><p>Detach and run in the background as a daemon.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-beat-s">
+<span id="cmdoption-celery-beat-schedule"></span><span class="sig-name descname"><span class="pre">-s</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--schedule</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;schedule&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-beat-s" title="Link to this definition">Â¶</a></dt>
+<dd><p>Path to the schedule database.  Defaults to <cite>celerybeat-schedule</cite>.The extension â€˜.dbâ€™ may be appended to the filename.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-beat-S">
+<span id="cmdoption-celery-beat-scheduler"></span><span class="sig-name descname"><span class="pre">-S</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--scheduler</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;scheduler&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-beat-S" title="Link to this definition">Â¶</a></dt>
+<dd><p>Scheduler class to use.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-beat-max-interval">
+<span class="sig-name descname"><span class="pre">--max-interval</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;max_interval&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-beat-max-interval" title="Link to this definition">Â¶</a></dt>
+<dd><p>Max seconds to sleep between schedule iterations.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-beat-l">
+<span id="cmdoption-celery-beat-loglevel"></span><span class="sig-name descname"><span class="pre">-l</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--loglevel</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;loglevel&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-beat-l" title="Link to this definition">Â¶</a></dt>
+<dd><p>Logging level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Options<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DEBUG | INFO | WARNING | ERROR | CRITICAL | FATAL</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-beat-f">
+<span id="cmdoption-celery-beat-logfile"></span><span class="sig-name descname"><span class="pre">-f</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--logfile</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;logfile&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-beat-f" title="Link to this definition">Â¶</a></dt>
+<dd><p>Log destination; defaults to stderr</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-beat-pidfile">
+<span class="sig-name descname"><span class="pre">--pidfile</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;pidfile&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-beat-pidfile" title="Link to this definition">Â¶</a></dt>
+<dd><p>PID file path; defaults to no PID file</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-beat-uid">
+<span class="sig-name descname"><span class="pre">--uid</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;uid&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-beat-uid" title="Link to this definition">Â¶</a></dt>
+<dd><p>Drops privileges to this user ID</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-beat-gid">
+<span class="sig-name descname"><span class="pre">--gid</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;gid&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-beat-gid" title="Link to this definition">Â¶</a></dt>
+<dd><p>Drops privileges to this group ID</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-beat-umask">
+<span class="sig-name descname"><span class="pre">--umask</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;umask&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-beat-umask" title="Link to this definition">Â¶</a></dt>
+<dd><p>Create files and directories with this umask</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-beat-executable">
+<span class="sig-name descname"><span class="pre">--executable</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;executable&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-beat-executable" title="Link to this definition">Â¶</a></dt>
+<dd><p>Override path to the Python executable</p>
+</dd></dl>
+
+</section>
+<section id="celery-call">
+<h3>call<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-call" title="Link to this heading">Â¶</a></h3>
+<p>Call a task by name.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>call<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>NAME
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-call-a">
+<span id="cmdoption-celery-call-args"></span><span class="sig-name descname"><span class="pre">-a</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--args</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;args&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-call-a" title="Link to this definition">Â¶</a></dt>
+<dd><p>Positional arguments.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-call-k">
+<span id="cmdoption-celery-call-kwargs"></span><span class="sig-name descname"><span class="pre">-k</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--kwargs</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;kwargs&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-call-k" title="Link to this definition">Â¶</a></dt>
+<dd><p>Keyword arguments.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-call-eta">
+<span class="sig-name descname"><span class="pre">--eta</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;eta&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-call-eta" title="Link to this definition">Â¶</a></dt>
+<dd><p>scheduled time.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-call-countdown">
+<span class="sig-name descname"><span class="pre">--countdown</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;countdown&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-call-countdown" title="Link to this definition">Â¶</a></dt>
+<dd><p>eta in seconds from now.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-call-expires">
+<span class="sig-name descname"><span class="pre">--expires</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;expires&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-call-expires" title="Link to this definition">Â¶</a></dt>
+<dd><p>expiry time.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-call-serializer">
+<span class="sig-name descname"><span class="pre">--serializer</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;serializer&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-call-serializer" title="Link to this definition">Â¶</a></dt>
+<dd><p>task serializer.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-call-queue">
+<span class="sig-name descname"><span class="pre">--queue</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;queue&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-call-queue" title="Link to this definition">Â¶</a></dt>
+<dd><p>custom queue name.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-call-exchange">
+<span class="sig-name descname"><span class="pre">--exchange</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;exchange&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-call-exchange" title="Link to this definition">Â¶</a></dt>
+<dd><p>custom exchange name.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-call-routing-key">
+<span class="sig-name descname"><span class="pre">--routing-key</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;routing_key&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-call-routing-key" title="Link to this definition">Â¶</a></dt>
+<dd><p>custom routing key.</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-call-arg-NAME">
+<span class="sig-name descname"><span class="pre">NAME</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-call-arg-NAME" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="celery-control">
+<h3>control<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-control" title="Link to this heading">Â¶</a></h3>
+<p>Send the COMMAND control command to the workers.</p>
+<p>Availability: RabbitMQ (AMQP), Redis, and MongoDB transports.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>control<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-control-list">
+<span class="sig-name descname"><span class="pre">--list</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-control-list" title="Link to this definition">Â¶</a></dt>
+<dd><p>List available control commands and exit.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-control-t">
+<span id="cmdoption-celery-control-timeout"></span><span class="sig-name descname"><span class="pre">-t</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--timeout</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;timeout&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-control-t" title="Link to this definition">Â¶</a></dt>
+<dd><p>Timeout in seconds waiting for reply.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-control-d">
+<span id="cmdoption-celery-control-destination"></span><span class="sig-name descname"><span class="pre">-d</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--destination</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;destination&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-control-d" title="Link to this definition">Â¶</a></dt>
+<dd><p>Comma separated list of destination node names.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-control-j">
+<span id="cmdoption-celery-control-json"></span><span class="sig-name descname"><span class="pre">-j</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--json</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-control-j" title="Link to this definition">Â¶</a></dt>
+<dd><p>Use json as output format.</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-control-arg-COMMAND">
+<span class="sig-name descname"><span class="pre">COMMAND</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-control-arg-COMMAND" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="celery-events">
+<h3>events<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-events" title="Link to this heading">Â¶</a></h3>
+<p>Event-stream utilities.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>events<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-events-d">
+<span id="cmdoption-celery-events-dump"></span><span class="sig-name descname"><span class="pre">-d</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--dump</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-events-d" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-events-c">
+<span id="cmdoption-celery-events-camera"></span><span class="sig-name descname"><span class="pre">-c</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--camera</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;camera&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-events-c" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-events-0">
+<span id="cmdoption-celery-events-detach"></span><span class="sig-name descname"><span class="pre">-d</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--detach</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-events-0" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-events-F">
+<span id="cmdoption-celery-events-frequency"></span><span id="cmdoption-celery-events-freq"></span><span class="sig-name descname"><span class="pre">-F</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--frequency</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--freq</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;frequency&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-events-F" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-events-r">
+<span id="cmdoption-celery-events-maxrate"></span><span class="sig-name descname"><span class="pre">-r</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--maxrate</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;maxrate&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-events-r" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-events-l">
+<span id="cmdoption-celery-events-loglevel"></span><span class="sig-name descname"><span class="pre">-l</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--loglevel</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;loglevel&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-events-l" title="Link to this definition">Â¶</a></dt>
+<dd><p>Logging level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Options<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DEBUG | INFO | WARNING | ERROR | CRITICAL | FATAL</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-events-f">
+<span id="cmdoption-celery-events-logfile"></span><span class="sig-name descname"><span class="pre">-f</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--logfile</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;logfile&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-events-f" title="Link to this definition">Â¶</a></dt>
+<dd><p>Log destination; defaults to stderr</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-events-pidfile">
+<span class="sig-name descname"><span class="pre">--pidfile</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;pidfile&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-events-pidfile" title="Link to this definition">Â¶</a></dt>
+<dd><p>PID file path; defaults to no PID file</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-events-uid">
+<span class="sig-name descname"><span class="pre">--uid</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;uid&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-events-uid" title="Link to this definition">Â¶</a></dt>
+<dd><p>Drops privileges to this user ID</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-events-gid">
+<span class="sig-name descname"><span class="pre">--gid</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;gid&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-events-gid" title="Link to this definition">Â¶</a></dt>
+<dd><p>Drops privileges to this group ID</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-events-umask">
+<span class="sig-name descname"><span class="pre">--umask</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;umask&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-events-umask" title="Link to this definition">Â¶</a></dt>
+<dd><p>Create files and directories with this umask</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-events-executable">
+<span class="sig-name descname"><span class="pre">--executable</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;executable&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-events-executable" title="Link to this definition">Â¶</a></dt>
+<dd><p>Override path to the Python executable</p>
+</dd></dl>
+
+</section>
+<section id="celery-graph">
+<h3>graph<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-graph" title="Link to this heading">Â¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">celery</span> <span class="pre">graph</span></code> command.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>graph<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<section id="celery-graph-bootsteps">
+<h4>bootsteps<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-graph-bootsteps" title="Link to this heading">Â¶</a></h4>
+<p>Display bootsteps graph.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>graph<span class="w"> </span>bootsteps<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="celery-graph-workers">
+<h4>workers<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-graph-workers" title="Link to this heading">Â¶</a></h4>
+<p>Display workers graph.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>graph<span class="w"> </span>workers<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="celery-inspect">
+<h3>inspect<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-inspect" title="Link to this heading">Â¶</a></h3>
+<p>Inspect the workers by sending them the COMMAND inspect command.</p>
+<p>Availability: RabbitMQ (AMQP) and Redis transports.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>inspect<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-inspect-list">
+<span class="sig-name descname"><span class="pre">--list</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-inspect-list" title="Link to this definition">Â¶</a></dt>
+<dd><p>List available inspect commands and exit.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-inspect-t">
+<span id="cmdoption-celery-inspect-timeout"></span><span class="sig-name descname"><span class="pre">-t</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--timeout</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;timeout&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-inspect-t" title="Link to this definition">Â¶</a></dt>
+<dd><p>Timeout in seconds waiting for reply.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-inspect-d">
+<span id="cmdoption-celery-inspect-destination"></span><span class="sig-name descname"><span class="pre">-d</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--destination</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;destination&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-inspect-d" title="Link to this definition">Â¶</a></dt>
+<dd><p>Comma separated list of destination node names.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-inspect-j">
+<span id="cmdoption-celery-inspect-json"></span><span class="sig-name descname"><span class="pre">-j</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--json</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-inspect-j" title="Link to this definition">Â¶</a></dt>
+<dd><p>Use json as output format.</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-inspect-arg-COMMAND">
+<span class="sig-name descname"><span class="pre">COMMAND</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-inspect-arg-COMMAND" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="celery-list">
+<h3>list<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-list" title="Link to this heading">Â¶</a></h3>
+<p>Get info from broker.</p>
+<p>Note:</p>
+<blockquote>
+<div><p>For RabbitMQ the management plugin is required.</p>
+</div></blockquote>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>list<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<section id="celery-list-bindings">
+<h4>bindings<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-list-bindings" title="Link to this heading">Â¶</a></h4>
+<p>Inspect queue bindings.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>list<span class="w"> </span>bindings<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="celery-logtool">
+<h3>logtool<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-logtool" title="Link to this heading">Â¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">celery</span> <span class="pre">logtool</span></code> command.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>logtool<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<section id="celery-logtool-debug">
+<h4>debug<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-logtool-debug" title="Link to this heading">Â¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>logtool<span class="w"> </span>debug<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>FILES<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-logtool-debug-arg-FILES">
+<span class="sig-name descname"><span class="pre">FILES</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-logtool-debug-arg-FILES" title="Link to this definition">Â¶</a></dt>
+<dd><p>Optional argument(s)</p>
+</dd></dl>
+
+</section>
+<section id="celery-logtool-errors">
+<h4>errors<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-logtool-errors" title="Link to this heading">Â¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>logtool<span class="w"> </span>errors<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>FILES<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-logtool-errors-arg-FILES">
+<span class="sig-name descname"><span class="pre">FILES</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-logtool-errors-arg-FILES" title="Link to this definition">Â¶</a></dt>
+<dd><p>Optional argument(s)</p>
+</dd></dl>
+
+</section>
+<section id="celery-logtool-incomplete">
+<h4>incomplete<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-logtool-incomplete" title="Link to this heading">Â¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>logtool<span class="w"> </span>incomplete<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>FILES<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-logtool-incomplete-arg-FILES">
+<span class="sig-name descname"><span class="pre">FILES</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-logtool-incomplete-arg-FILES" title="Link to this definition">Â¶</a></dt>
+<dd><p>Optional argument(s)</p>
+</dd></dl>
+
+</section>
+<section id="celery-logtool-stats">
+<h4>stats<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-logtool-stats" title="Link to this heading">Â¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>logtool<span class="w"> </span>stats<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>FILES<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-logtool-stats-arg-FILES">
+<span class="sig-name descname"><span class="pre">FILES</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-logtool-stats-arg-FILES" title="Link to this definition">Â¶</a></dt>
+<dd><p>Optional argument(s)</p>
+</dd></dl>
+
+</section>
+<section id="celery-logtool-traces">
+<h4>traces<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-logtool-traces" title="Link to this heading">Â¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>logtool<span class="w"> </span>traces<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>FILES<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-logtool-traces-arg-FILES">
+<span class="sig-name descname"><span class="pre">FILES</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-logtool-traces-arg-FILES" title="Link to this definition">Â¶</a></dt>
+<dd><p>Optional argument(s)</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="celery-migrate">
+<h3>migrate<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-migrate" title="Link to this heading">Â¶</a></h3>
+<p>Migrate tasks from one broker to another.</p>
+<p>Warning:</p>
+<blockquote>
+<div><p>This command is experimental, make sure you have a backup of
+the tasks before you continue.</p>
+</div></blockquote>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>migrate<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>SOURCE<span class="w"> </span>DESTINATION
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-migrate-n">
+<span id="cmdoption-celery-migrate-limit"></span><span class="sig-name descname"><span class="pre">-n</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--limit</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;limit&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-migrate-n" title="Link to this definition">Â¶</a></dt>
+<dd><p>Number of tasks to consume.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-migrate-t">
+<span id="cmdoption-celery-migrate-timeout"></span><span class="sig-name descname"><span class="pre">-t</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--timeout</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;timeout&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-migrate-t" title="Link to this definition">Â¶</a></dt>
+<dd><p>Timeout in seconds waiting for tasks.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-migrate-a">
+<span id="cmdoption-celery-migrate-ack-messages"></span><span class="sig-name descname"><span class="pre">-a</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--ack-messages</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-migrate-a" title="Link to this definition">Â¶</a></dt>
+<dd><p>Ack messages from source broker.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-migrate-T">
+<span id="cmdoption-celery-migrate-tasks"></span><span class="sig-name descname"><span class="pre">-T</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--tasks</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;tasks&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-migrate-T" title="Link to this definition">Â¶</a></dt>
+<dd><p>List of task names to filter on.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-migrate-Q">
+<span id="cmdoption-celery-migrate-queues"></span><span class="sig-name descname"><span class="pre">-Q</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--queues</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;queues&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-migrate-Q" title="Link to this definition">Â¶</a></dt>
+<dd><p>List of queues to migrate.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-migrate-F">
+<span id="cmdoption-celery-migrate-forever"></span><span class="sig-name descname"><span class="pre">-F</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--forever</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-migrate-F" title="Link to this definition">Â¶</a></dt>
+<dd><p>Continually migrate tasks until killed.</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-migrate-arg-SOURCE">
+<span class="sig-name descname"><span class="pre">SOURCE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-migrate-arg-SOURCE" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-migrate-arg-DESTINATION">
+<span class="sig-name descname"><span class="pre">DESTINATION</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-migrate-arg-DESTINATION" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="celery-multi">
+<h3>multi<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-multi" title="Link to this heading">Â¶</a></h3>
+<p>Start multiple worker instances.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>multi<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="celery-purge">
+<h3>purge<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-purge" title="Link to this heading">Â¶</a></h3>
+<p>Erase all messages from all known task queues.</p>
+<p>Warning:</p>
+<blockquote>
+<div><p>Thereâ€™s no undo operation for this command.</p>
+</div></blockquote>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>purge<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-purge-f">
+<span id="cmdoption-celery-purge-force"></span><span class="sig-name descname"><span class="pre">-f</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--force</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-purge-f" title="Link to this definition">Â¶</a></dt>
+<dd><p>Donâ€™t prompt for verification.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-purge-Q">
+<span id="cmdoption-celery-purge-queues"></span><span class="sig-name descname"><span class="pre">-Q</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--queues</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;queues&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-purge-Q" title="Link to this definition">Â¶</a></dt>
+<dd><p>Comma separated list of queue names to purge.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-purge-X">
+<span id="cmdoption-celery-purge-exclude-queues"></span><span class="sig-name descname"><span class="pre">-X</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--exclude-queues</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;exclude_queues&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-purge-X" title="Link to this definition">Â¶</a></dt>
+<dd><p>Comma separated list of queues names not to purge.</p>
+</dd></dl>
+
+</section>
+<section id="celery-report">
+<h3>report<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-report" title="Link to this heading">Â¶</a></h3>
+<p>Shows information useful to include in bug-reports.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>report<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="celery-result">
+<h3>result<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-result" title="Link to this heading">Â¶</a></h3>
+<p>Print the return value for a given task id.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>result<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>TASK_ID
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-result-t">
+<span id="cmdoption-celery-result-task"></span><span class="sig-name descname"><span class="pre">-t</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--task</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;task&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-result-t" title="Link to this definition">Â¶</a></dt>
+<dd><p>Name of task (if custom backend).</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-result-traceback">
+<span class="sig-name descname"><span class="pre">--traceback</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-result-traceback" title="Link to this definition">Â¶</a></dt>
+<dd><p>Show traceback instead.</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-result-arg-TASK_ID">
+<span class="sig-name descname"><span class="pre">TASK_ID</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-result-arg-TASK_ID" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="celery-shell">
+<h3>shell<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-shell" title="Link to this heading">Â¶</a></h3>
+<p>Start shell session with convenient access to celery symbols.</p>
+<p>The following symbols will be added to the main globals:
+- <code class="docutils literal notranslate"><span class="pre">celery</span></code>:  the current application.
+- <code class="docutils literal notranslate"><span class="pre">chord</span></code>, <code class="docutils literal notranslate"><span class="pre">group</span></code>, <code class="docutils literal notranslate"><span class="pre">chain</span></code>, <code class="docutils literal notranslate"><span class="pre">chunks</span></code>,</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">xmap</span></code>, <code class="docutils literal notranslate"><span class="pre">xstarmap</span></code> <code class="docutils literal notranslate"><span class="pre">subtask</span></code>, <code class="docutils literal notranslate"><span class="pre">Task</span></code></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>all registered tasks.</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>shell<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-shell-I">
+<span id="cmdoption-celery-shell-ipython"></span><span class="sig-name descname"><span class="pre">-I</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--ipython</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-shell-I" title="Link to this definition">Â¶</a></dt>
+<dd><p>Force IPython.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-shell-B">
+<span id="cmdoption-celery-shell-bpython"></span><span class="sig-name descname"><span class="pre">-B</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--bpython</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-shell-B" title="Link to this definition">Â¶</a></dt>
+<dd><p>Force bpython.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-shell-python">
+<span class="sig-name descname"><span class="pre">--python</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-shell-python" title="Link to this definition">Â¶</a></dt>
+<dd><p>Force default Python shell.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-shell-T">
+<span id="cmdoption-celery-shell-without-tasks"></span><span class="sig-name descname"><span class="pre">-T</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--without-tasks</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-shell-T" title="Link to this definition">Â¶</a></dt>
+<dd><p>Donâ€™t add tasks to locals.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-shell-eventlet">
+<span class="sig-name descname"><span class="pre">--eventlet</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-shell-eventlet" title="Link to this definition">Â¶</a></dt>
+<dd><p>Use eventlet.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-shell-gevent">
+<span class="sig-name descname"><span class="pre">--gevent</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-shell-gevent" title="Link to this definition">Â¶</a></dt>
+<dd><p>Use gevent.</p>
+</dd></dl>
+
+</section>
+<section id="celery-status">
+<h3>status<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-status" title="Link to this heading">Â¶</a></h3>
+<p>Show list of workers that are online.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>status<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-status-t">
+<span id="cmdoption-celery-status-timeout"></span><span class="sig-name descname"><span class="pre">-t</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--timeout</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;timeout&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-status-t" title="Link to this definition">Â¶</a></dt>
+<dd><p>Timeout in seconds waiting for reply.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-status-d">
+<span id="cmdoption-celery-status-destination"></span><span class="sig-name descname"><span class="pre">-d</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--destination</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;destination&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-status-d" title="Link to this definition">Â¶</a></dt>
+<dd><p>Comma separated list of destination node names.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-status-j">
+<span id="cmdoption-celery-status-json"></span><span class="sig-name descname"><span class="pre">-j</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--json</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-status-j" title="Link to this definition">Â¶</a></dt>
+<dd><p>Use json as output format.</p>
+</dd></dl>
+
+</section>
+<section id="celery-upgrade">
+<h3>upgrade<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-upgrade" title="Link to this heading">Â¶</a></h3>
+<p>Perform upgrade between versions.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>upgrade<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<section id="celery-upgrade-settings">
+<h4>settings<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-upgrade-settings" title="Link to this heading">Â¶</a></h4>
+<p>Migrate settings from Celery 3.x to Celery 4.x.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>upgrade<span class="w"> </span>settings<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>FILENAME
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-upgrade-settings-django">
+<span class="sig-name descname"><span class="pre">--django</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-upgrade-settings-django" title="Link to this definition">Â¶</a></dt>
+<dd><p>Upgrade Django project.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-upgrade-settings-compat">
+<span class="sig-name descname"><span class="pre">--compat</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-upgrade-settings-compat" title="Link to this definition">Â¶</a></dt>
+<dd><p>Maintain backwards compatibility.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-upgrade-settings-no-backup">
+<span class="sig-name descname"><span class="pre">--no-backup</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-upgrade-settings-no-backup" title="Link to this definition">Â¶</a></dt>
+<dd><p>Donâ€™t backup original files.</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-upgrade-settings-arg-FILENAME">
+<span class="sig-name descname"><span class="pre">FILENAME</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-upgrade-settings-arg-FILENAME" title="Link to this definition">Â¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="celery-worker">
+<h3>worker<a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#celery-worker" title="Link to this heading">Â¶</a></h3>
+<p>Start worker instance.</p>
+<div class="line-block">
+<div class="line">Examples</div>
+<div class="line">â€”â€”â€“</div>
+</div>
+<div class="line-block">
+<div class="line">$ celery â€“app=proj worker -l INFO</div>
+<div class="line">$ celery -A proj worker -l INFO -Q hipri,lopri</div>
+<div class="line">$ celery -A proj worker â€“concurrency=4</div>
+<div class="line">$ celery -A proj worker â€“concurrency=1000 -P eventlet</div>
+<div class="line">$ celery worker â€“autoscale=10,0</div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>celery<span class="w"> </span>worker<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-n">
+<span id="cmdoption-celery-worker-hostname"></span><span class="sig-name descname"><span class="pre">-n</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--hostname</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;hostname&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-n" title="Link to this definition">Â¶</a></dt>
+<dd><p>Set custom hostname (e.g., <a class="reference external" href="mailto:'w1%40%%h">â€˜w1<span>@</span>%%h</a>â€™).  Expands: %%h (hostname), %%n (name) and %%d, (domain).</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-D">
+<span id="cmdoption-celery-worker-detach"></span><span class="sig-name descname"><span class="pre">-D</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--detach</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-D" title="Link to this definition">Â¶</a></dt>
+<dd><p>Start worker as a background process.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-S">
+<span id="cmdoption-celery-worker-statedb"></span><span class="sig-name descname"><span class="pre">-S</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--statedb</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;statedb&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-S" title="Link to this definition">Â¶</a></dt>
+<dd><p>Path to the state database. The extension â€˜.dbâ€™ may be appended to the filename.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-l">
+<span id="cmdoption-celery-worker-loglevel"></span><span class="sig-name descname"><span class="pre">-l</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--loglevel</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;loglevel&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-l" title="Link to this definition">Â¶</a></dt>
+<dd><p>Logging level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Options<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DEBUG | INFO | WARNING | ERROR | CRITICAL | FATAL</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-O">
+<span id="cmdoption-celery-worker-optimization"></span><span class="sig-name descname"><span class="pre">-O</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--optimization</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;optimization&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-O" title="Link to this definition">Â¶</a></dt>
+<dd><p>Apply optimization profile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Options<span class="colon">:</span></dt>
+<dd class="field-odd"><p>default | fair</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-prefetch-multiplier">
+<span class="sig-name descname"><span class="pre">--prefetch-multiplier</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;prefetch</span> <span class="pre">multiplier&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-prefetch-multiplier" title="Link to this definition">Â¶</a></dt>
+<dd><p>Set custom prefetch multiplier value for this worker instance.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-c">
+<span id="cmdoption-celery-worker-concurrency"></span><span class="sig-name descname"><span class="pre">-c</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--concurrency</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;concurrency&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-c" title="Link to this definition">Â¶</a></dt>
+<dd><p>Number of child processes processing the queue.  The default is the number of CPUs available on your system.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-P">
+<span id="cmdoption-celery-worker-pool"></span><span class="sig-name descname"><span class="pre">-P</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--pool</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;pool&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-P" title="Link to this definition">Â¶</a></dt>
+<dd><p>Pool implementation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Options<span class="colon">:</span></dt>
+<dd class="field-odd"><p>prefork | eventlet | gevent | solo | processes | threads | custom</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-E">
+<span id="cmdoption-celery-worker-task-events"></span><span id="cmdoption-celery-worker-events"></span><span class="sig-name descname"><span class="pre">-E</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--task-events</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--events</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-E" title="Link to this definition">Â¶</a></dt>
+<dd><p>Send task-related events that can be captured by monitors like celery events, celerymon, and others.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-time-limit">
+<span class="sig-name descname"><span class="pre">--time-limit</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;time_limit&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-time-limit" title="Link to this definition">Â¶</a></dt>
+<dd><p>Enables a hard time limit (in seconds int/float) for tasks.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-soft-time-limit">
+<span class="sig-name descname"><span class="pre">--soft-time-limit</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;soft_time_limit&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-soft-time-limit" title="Link to this definition">Â¶</a></dt>
+<dd><p>Enables a soft time limit (in seconds int/float) for tasks.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-max-tasks-per-child">
+<span class="sig-name descname"><span class="pre">--max-tasks-per-child</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;max_tasks_per_child&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-max-tasks-per-child" title="Link to this definition">Â¶</a></dt>
+<dd><p>Maximum number of tasks a pool worker can execute before itâ€™s terminated and replaced by a new worker.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-max-memory-per-child">
+<span class="sig-name descname"><span class="pre">--max-memory-per-child</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;max_memory_per_child&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-max-memory-per-child" title="Link to this definition">Â¶</a></dt>
+<dd><p>Maximum amount of resident memory, in KiB, that may be consumed by a child process before it will be replaced by a new one.  If a single task causes a child process to exceed this limit, the task will be completed and the child process will be replaced afterwards.
+Default: no limit.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-purge">
+<span id="cmdoption-celery-worker-discard"></span><span class="sig-name descname"><span class="pre">--purge</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--discard</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-purge" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-Q">
+<span id="cmdoption-celery-worker-queues"></span><span class="sig-name descname"><span class="pre">-Q</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--queues</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;queues&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-Q" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-X">
+<span id="cmdoption-celery-worker-exclude-queues"></span><span class="sig-name descname"><span class="pre">-X</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--exclude-queues</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;exclude_queues&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-X" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-I">
+<span id="cmdoption-celery-worker-include"></span><span class="sig-name descname"><span class="pre">-I</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--include</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;include&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-I" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-without-gossip">
+<span class="sig-name descname"><span class="pre">--without-gossip</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-without-gossip" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-without-mingle">
+<span class="sig-name descname"><span class="pre">--without-mingle</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-without-mingle" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-without-heartbeat">
+<span class="sig-name descname"><span class="pre">--without-heartbeat</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-without-heartbeat" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-heartbeat-interval">
+<span class="sig-name descname"><span class="pre">--heartbeat-interval</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;heartbeat_interval&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-heartbeat-interval" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-autoscale">
+<span class="sig-name descname"><span class="pre">--autoscale</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;autoscale&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-autoscale" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-B">
+<span id="cmdoption-celery-worker-beat"></span><span class="sig-name descname"><span class="pre">-B</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--beat</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-B" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-s">
+<span id="cmdoption-celery-worker-schedule-filename"></span><span id="cmdoption-celery-worker-schedule"></span><span class="sig-name descname"><span class="pre">-s</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--schedule-filename</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--schedule</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;schedule_filename&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-s" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-scheduler">
+<span class="sig-name descname"><span class="pre">--scheduler</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;scheduler&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-scheduler" title="Link to this definition">Â¶</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-f">
+<span id="cmdoption-celery-worker-logfile"></span><span class="sig-name descname"><span class="pre">-f</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--logfile</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;logfile&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-f" title="Link to this definition">Â¶</a></dt>
+<dd><p>Log destination; defaults to stderr</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-pidfile">
+<span class="sig-name descname"><span class="pre">--pidfile</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;pidfile&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-pidfile" title="Link to this definition">Â¶</a></dt>
+<dd><p>PID file path; defaults to no PID file</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-uid">
+<span class="sig-name descname"><span class="pre">--uid</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;uid&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-uid" title="Link to this definition">Â¶</a></dt>
+<dd><p>Drops privileges to this user ID</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-gid">
+<span class="sig-name descname"><span class="pre">--gid</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;gid&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-gid" title="Link to this definition">Â¶</a></dt>
+<dd><p>Drops privileges to this group ID</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-umask">
+<span class="sig-name descname"><span class="pre">--umask</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;umask&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-umask" title="Link to this definition">Â¶</a></dt>
+<dd><p>Create files and directories with this umask</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-celery-worker-executable">
+<span class="sig-name descname"><span class="pre">--executable</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;executable&gt;</span></span><a class="headerlink" href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html#cmdoption-celery-worker-executable" title="Link to this definition">Â¶</a></dt>
+<dd><p>Override path to the Python executable</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="https://docs.celeryq.dev/en/v5.4.0/index.html">
+              <img class="logo" src="https://docs.celeryq.dev/en/v5.4.0/_static/celery_512.png" alt="Logo">
+            </a></p><iframe src="cid:frame-9C37C9598E43A388CDB970245DE112A8@mhtml.blink" allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+<div id="donate">
+    <h3>Donations</h3>
+    <p>Please help support this community project with a donation.</p>
+    <a href="https://opencollective.com/celery/donate" target="_blank">
+      <img src="https://opencollective.com/celery/donate/button@2x.png?color=blue">
+    </a>
+</div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="https://docs.celeryq.dev/en/v5.4.0/reference/index.html" title="previous chapter">API Reference</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="https://docs.celeryq.dev/en/v5.4.0/reference/celery.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">celery</span></code> â€” Distributed processing</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="https://docs.celeryq.dev/en/v5.4.0/_sources/reference/cli.rst.txt" rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: block;" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="https://docs.celeryq.dev/en/v5.4.0/search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+      <input type="submit" value="Go">
+    </form>
+    </div>
+</search>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://docs.celeryq.dev/en/v5.4.0/genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="https://docs.celeryq.dev/en/v5.4.0/py-modindex.html" title="Python Module Index">modules</a> |</li>
+        <li class="right">
+          <a href="https://docs.celeryq.dev/en/v5.4.0/reference/celery.html" title="celery â€” Distributed processing">next</a> |</li>
+        <li class="right">
+          <a href="https://docs.celeryq.dev/en/v5.4.0/reference/index.html" title="API Reference">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="https://docs.celeryq.dev/en/v5.4.0/index.html">Celery 5.4.0 documentation</a> Â»</li>
+          <li class="nav-item nav-item-1"><a href="https://docs.celeryq.dev/en/v5.4.0/reference/index.html">API Reference</a> Â»</li>
+        <li class="nav-item nav-item-this"><a href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html">Command Line Interface</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    Â© <a href="https://docs.celeryq.dev/en/v5.4.0/copyright.html">Copyright</a> 2009-2023, Ask Solem &amp; contributors.
+    </div>
+  
+<readthedocs-flyout><template shadowmode="open"><!---->
+      <div class=" floating container bottom-right ">
+        <!--?lit$770736413$-->
+      <header>
+        <img class="logo" alt="Read the Docs" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmc6c3ZnCiAgIHZlcnNpb249IjEuMSIKICAgaWQ9InN2ZyIKICAgeD0iMHB4IgogICB5PSIwcHgiCiAgIHZpZXdCb3g9IjY5NCAxOTcgMzQ2LjY5ODU1IDM5OS45ODQ3NyIKICAgc29kaXBvZGk6ZG9jbmFtZT0ibG9nby1saWdodC5zdmciCiAgIHdpZHRoPSIzNDYuNjk4NTUiCiAgIGhlaWdodD0iMzk5Ljk4NDc3IgogICBpbmtzY2FwZTp2ZXJzaW9uPSIxLjMuMiAoMDkxZTIwZWYwZiwgMjAyMy0xMS0yNSwgY3VzdG9tKSIKICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiCiAgIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHN2ZzpkZWZzCiAgICAgaWQ9ImRlZnMxMiIgLz4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9Im5hbWVkdmlldzEyIgogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzAwMDAwMCIKICAgICBib3JkZXJvcGFjaXR5PSIwLjI1IgogICAgIGlua3NjYXBlOnNob3dwYWdlc2hhZG93PSIyIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwLjAiCiAgICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgICBpbmtzY2FwZTpkZXNrY29sb3I9IiNkMWQxZDEiCiAgICAgaW5rc2NhcGU6em9vbT0iMS4yNTIiCiAgICAgaW5rc2NhcGU6Y3g9Ijk5OC40MDI1NiIKICAgICBpbmtzY2FwZTpjeT0iMTk5LjY4MDUxIgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMzQ0MCIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMzg5IgogICAgIGlua3NjYXBlOndpbmRvdy14PSIwIgogICAgIGlua3NjYXBlOndpbmRvdy15PSIyNyIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2ZyIgLz4KICA8c3ZnOmcKICAgICBpZD0ibG9nbyIKICAgICB0cmFuc2Zvcm09Im1hdHJpeCgwLjU1NzUzNjQ0LDAsMCwwLjU1NzUzNjQ0LDY2LjUzMTgxMiwxMDUwLjEyNjIpIj4KICAgIDxzdmc6cGF0aAogICAgICAgc3R5bGU9ImZpbGw6I2ZjZmNmYyIKICAgICAgIGQ9Im0gMTQwOC4xLC0xMTgxLjcgYyAtNy41LDEgLTEyLjcsNy44IC0xMS43LDE1LjMgMC43LDUuNCA0LjYsOS45IDkuOSwxMS4zIDAsMCAzMy4yLDExIDg5LjcsMTUuNiA0NS40LDMuNyA5Ni45LC0zLjIgOTYuOSwtMy4yIDcuNSwtMC4yIDEzLjUsLTYuNSAxMy4yLC0xNCAtMC4zLC03LjUgLTYuNSwtMTMuNSAtMTQsLTEzLjIgLTAuOSwwIC0xLjgsMC4xIC0yLjYsMC4zIDAsMCAtNTAuNCw2LjIgLTkxLjMsMi45IC01NCwtNC40IC04My40LC0xNC4zIC04My40LC0xNC4zIC0yLjIsLTAuNyAtNC41LC0xIC02LjcsLTAuNyB6IG0gMCwtNjcuNiBjIC03LjUsMSAtMTIuNyw3LjggLTExLjcsMTUuMyAwLjcsNS40IDQuNiw5LjkgOS45LDExLjMgMCwwIDMzLjIsMTEgODkuNywxNS42IDQ1LjQsMy43IDk2LjksLTMuMiA5Ni45LC0zLjIgNy41LC0wLjIgMTMuNSwtNi41IDEzLjIsLTE0IC0wLjMsLTcuNSAtNi41LC0xMy41IC0xNCwtMTMuMiAtMC45LDAgLTEuOCwwLjEgLTIuNiwwLjMgMCwwIC01MC40LDYuMiAtOTEuMywyLjkgLTU0LC00LjQgLTgzLjQsLTE0LjMgLTgzLjQsLTE0LjMgLTIuMiwtMC43IC00LjUsLTEgLTYuNywtMC43IHogbSAwLC02Ny42IGMgLTcuNSwxIC0xMi43LDcuOCAtMTEuNywxNS4zIDAuNyw1LjQgNC42LDkuOSA5LjksMTEuMyAwLDAgMzMuMiwxMSA4OS43LDE1LjYgNDUuNCwzLjcgOTYuOSwtMy4yIDk2LjksLTMuMiA3LjUsLTAuMiAxMy41LC02LjUgMTMuMiwtMTQgLTAuMywtNy41IC02LjUsLTEzLjUgLTE0LC0xMy4yIC0wLjksMCAtMS44LDAuMSAtMi42LDAuMyAwLDAgLTUwLjQsNi4yIC05MS4zLDIuOSAtNTQsLTQuNCAtODMuNCwtMTQuMyAtODMuNCwtMTQuMyAtMi4yLC0wLjcgLTQuNSwtMSAtNi43LC0wLjcgeiBtIDAsLTY3LjUgYyAtNy41LDEgLTEyLjcsNy44IC0xMS43LDE1LjMgMC43LDUuNCA0LjYsOS45IDkuOSwxMS4zIDAsMCAzMy4yLDExIDg5LjcsMTUuNiA0NS40LDMuNyA5Ni45LC0zLjIgOTYuOSwtMy4yIDcuNSwtMC4yIDEzLjUsLTYuNSAxMy4yLC0xNCAtMC4zLC03LjUgLTYuNSwtMTMuNSAtMTQsLTEzLjIgLTAuOSwwIC0xLjgsMC4xIC0yLjYsMC4zIDAsMCAtNTAuNCw2LjIgLTkxLjMsMi45IC01NCwtNC40IC04My40LC0xNC4zIC04My40LC0xNC4zIC0yLjIsLTAuOCAtNC41LC0xIC02LjcsLTAuNyB6IG0gLTk0LjcsLTcxLjMgYyAtNzEsMC41IC05Ny41LDIyLjMgLTk3LjUsMjIuMyB2IDUzMC4zIGMgMCwwIDI1LjgsLTIyLjMgMTA5LC0xOC45IDgzLjIsMy40IDEwMC4zLDMyLjYgMjAyLjUsMzQuNiAxMDIuMiwyLjEgMTI3LjksLTE1LjcgMTI3LjksLTE1LjcgbCAxLjUsLTU0MC42IGMgMCwwIC00NiwxMyAtMTM1LjUsMTMuNyAtODkuNSwwLjcgLTExMSwtMjIuOCAtMTkzLjIsLTI1LjUgLTUuMSwtMC4xIC0xMCwtMC4yIC0xNC43LC0wLjIgeiBtIDU5LjQsMzQuNiBjIDAsMCA0MywxNC4yIDEyMi41LDE4LjIgNjcuMiwzLjMgMTM0LjUsLTYuNiAxMzQuNSwtNi42IFYgLTkyOSBjIDAsMCAtMzQuMSwxNy45IC0xMTkuMywxMS44IC02NiwtNC43IC0xMzguNywtMjkuNyAtMTM4LjcsLTI5LjcgeiBtIC00MS41LDEyLjUgYyA3LjYsMCAxMy43LDYuMiAxMy43LDEzLjcgMCw3LjUgLTYuMiwxMy43IC0xMy43LDEzLjcgMCwwIC0yMi4zLDAuMSAtMzUuOCwxLjUgLTIyLjgsMi4zIC0zOC4zLDEwLjYgLTM4LjMsMTAuNiAtNi43LDMuNSAtMTUsMSAtMTguNSwtNS43IC0zLjUsLTYuNyAtMSwtMTUgNS43LC0xOC41IDAsMCAwLDAgMCwwIDAsMCAyMC4yLC0xMC43IDQ4LjQsLTEzLjUgMTYuMywtMS43IDM4LjUsLTEuOCAzOC41LC0xLjggeiBtIC0xMy4yLDY3LjggYyA3LjYsLTAuMiAxMy4zLDAgMTMuMywwIDcuNSwwLjkgMTIuOSw3LjggMTIsMTUuMyAtMC44LDYuMyAtNS43LDExLjIgLTEyLDEyIDAsMCAtMjIuMywwLjEgLTM1LjgsMS41IC0yMi44LDIuMyAtMzguMywxMC42IC0zOC4zLDEwLjYgLTYuNywzLjUgLTE1LDAuOSAtMTguNSwtNS44IC0zLjUsLTYuNyAtMC45LC0xNSA1LjgsLTE4LjUgMCwwIDIwLjIsLTEwLjcgNDguNCwtMTMuNSA3LjksLTAuOSAxNy41LC0xLjQgMjUuMSwtMS42IHogbSAxMy4yLDY3LjUgYyA3LjYsMCAxMy43LDYuMiAxMy43LDEzLjcgMCw3LjYgLTYuMiwxMy43IC0xMy43LDEzLjcgMCwwIC0yMi4zLC0wLjEgLTM1LjgsMS4yIC0yMi44LDIuMyAtMzguMywxMC42IC0zOC4zLDEwLjYgLTYuNywzLjUgLTE1LDAuOSAtMTguNSwtNS44IC0zLjUsLTYuNyAtMC45LC0xNSA1LjgsLTE4LjUgMCwwIDIwLjIsLTEwLjcgNDguNCwtMTMuNSAxNi4yLC0xLjUgMzguNCwtMS40IDM4LjQsLTEuNCB6IgogICAgICAgaWQ9InBhdGgxIiAvPgogIDwvc3ZnOmc+CiAgPGRpdgogICAgIGlkPSJzYWthLWd1aS1yb290Ij4KICAgIDxkaXY+CiAgICAgIDxkaXY+CiAgICAgICAgPHN0eWxlIC8+CiAgICAgIDwvZGl2PgogICAgPC9kaXY+CiAgPC9kaXY+Cjwvc3ZnOnN2Zz4K">
+        <!--?lit$770736413$--> <!--?lit$770736413$--><span><!--?lit$770736413$--><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code-branch" class="svg-inline--fa fa-code-branch icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M80 104a24 24 0 1 0 0-48 24 24 0 1 0 0 48zm80-24c0 32.8-19.7 61-48 73.3l0 87.8c18.8-10.9 40.7-17.1 64-17.1l96 0c35.3 0 64-28.7 64-64l0-6.7C307.7 141 288 112.8 288 80c0-44.2 35.8-80 80-80s80 35.8 80 80c0 32.8-19.7 61-48 73.3l0 6.7c0 70.7-57.3 128-128 128l-96 0c-35.3 0-64 28.7-64 64l0 6.7c28.3 12.3 48 40.5 48 73.3c0 44.2-35.8 80-80 80s-80-35.8-80-80c0-32.8 19.7-61 48-73.3l0-6.7 0-198.7C19.7 141 0 112.8 0 80C0 35.8 35.8 0 80 0s80 35.8 80 80zm232 0a24 24 0 1 0 -48 0 24 24 0 1 0 48 0zM80 456a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"></path></svg> <!--?lit$770736413$-->v5.4.0</span>
+      </header>
+    
+        <main class=" closed ">
+          <!--?lit$770736413$--> <!--?lit$770736413$-->
+      <dl class="versions">
+        <dt>Versions</dt>
+        <!--?lit$770736413$--><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/latest/reference/cli.html"><!--?lit$770736413$-->latest</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/stable/reference/cli.html"><!--?lit$770736413$-->stable</a></dd><!----><!----><dd><!--?lit$770736413$--><strong><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.4.0/reference/cli.html"><!--?lit$770736413$-->v5.4.0</a></strong></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.3.6/reference/cli.html"><!--?lit$770736413$-->v5.3.6</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.3.5/reference/cli.html"><!--?lit$770736413$-->v5.3.5</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.3.4/reference/cli.html"><!--?lit$770736413$-->v5.3.4</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.3.3/reference/cli.html"><!--?lit$770736413$-->v5.3.3</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.3.2/reference/cli.html"><!--?lit$770736413$-->v5.3.2</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.3.1/reference/cli.html"><!--?lit$770736413$-->v5.3.1</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.3.0/reference/cli.html"><!--?lit$770736413$-->v5.3.0</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.2.7/reference/cli.html"><!--?lit$770736413$-->v5.2.7</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.2.6/reference/cli.html"><!--?lit$770736413$-->v5.2.6</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.2.5/reference/cli.html"><!--?lit$770736413$-->v5.2.5</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.2.4/reference/cli.html"><!--?lit$770736413$-->v5.2.4</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.2.3/reference/cli.html"><!--?lit$770736413$-->v5.2.3</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.2.2/reference/cli.html"><!--?lit$770736413$-->v5.2.2</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.2.1/reference/cli.html"><!--?lit$770736413$-->v5.2.1</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.2.0/reference/cli.html"><!--?lit$770736413$-->v5.2.0</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.1.2/reference/cli.html"><!--?lit$770736413$-->v5.1.2</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.1.1/reference/cli.html"><!--?lit$770736413$-->v5.1.1</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.1.0/reference/cli.html"><!--?lit$770736413$-->v5.1.0</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.0.5/reference/cli.html"><!--?lit$770736413$-->v5.0.5</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.0.2/reference/cli.html"><!--?lit$770736413$-->v5.0.2</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.0.1/reference/cli.html"><!--?lit$770736413$-->v5.0.1</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v5.0.0/reference/cli.html"><!--?lit$770736413$-->v5.0.0</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v4.4.7/reference/cli.html"><!--?lit$770736413$-->v4.4.7</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v4.4.6/reference/cli.html"><!--?lit$770736413$-->v4.4.6</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v4.4.5/reference/cli.html"><!--?lit$770736413$-->v4.4.5</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v4.4.4/reference/cli.html"><!--?lit$770736413$-->v4.4.4</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/4.4.3/reference/cli.html"><!--?lit$770736413$-->4.4.3</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/4.4.2/reference/cli.html"><!--?lit$770736413$-->4.4.2</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/4.4.1/reference/cli.html"><!--?lit$770736413$-->4.4.1</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/4.4.0/reference/cli.html"><!--?lit$770736413$-->4.4.0</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v4.3.0/reference/cli.html"><!--?lit$770736413$-->v4.3.0</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v4.2.2/reference/cli.html"><!--?lit$770736413$-->v4.2.2</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v4.2.1/reference/cli.html"><!--?lit$770736413$-->v4.2.1</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v4.2.0/reference/cli.html"><!--?lit$770736413$-->v4.2.0</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v4.1.0/reference/cli.html"><!--?lit$770736413$-->v4.1.0</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v4.0.2/reference/cli.html"><!--?lit$770736413$-->v4.0.2</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v4.0.1/reference/cli.html"><!--?lit$770736413$-->v4.0.1</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/v4.0.0/reference/cli.html"><!--?lit$770736413$-->v4.0.0</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/4.0/reference/cli.html"><!--?lit$770736413$-->4.0</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/3.1/reference/cli.html"><!--?lit$770736413$-->3.1</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/3.0/reference/cli.html"><!--?lit$770736413$-->3.0</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/main/reference/cli.html"><!--?lit$770736413$-->main</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/2.5-archived/reference/cli.html"><!--?lit$770736413$-->2.5-archived</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/2.4-archived/reference/cli.html"><!--?lit$770736413$-->2.4-archived</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/2.3-archived/reference/cli.html"><!--?lit$770736413$-->2.3-archived</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/2.2-archived/reference/cli.html"><!--?lit$770736413$-->2.2-archived</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/2.1-archived/reference/cli.html"><!--?lit$770736413$-->2.1-archived</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/2.0-archived/reference/cli.html"><!--?lit$770736413$-->2.0-archived</a></dd><!----><!----><dd><!--?lit$770736413$--><a href="https://docs.celeryq.dev/en/1.0-archived/reference/cli.html"><!--?lit$770736413$-->1.0-archived</a></dd><!---->
+      </dl>
+    
+          <!--?lit$770736413$--> <!--?lit$770736413$-->
+      <dl>
+        <dt>On Read the Docs</dt>
+        <dd>
+          <a href="https://app.readthedocs.org/projects/celery/?utm_source=celery&amp;utm_content=flyout">Project Home</a>
+        </dd>
+        <dd>
+          <a href="https://app.readthedocs.org/projects/celery/builds/?utm_source=celery&amp;utm_content=flyout">Builds</a>
+        </dd>
+      </dl>
+    
+          <!--?lit$770736413$--> <!--?lit$770736413$-->
+        <dl>
+          <dt>Search</dt>
+          <dd>
+            <form id="flyout-search-form">
+              <input type="text" name="q" aria-label="Search docs" placeholder="Search docs">
+            </form>
+          </dd>
+        </dl>
+      
+          <hr>
+          <!--?lit$770736413$-->
+      <small>
+        <span>
+          <a href="https://docs.readthedocs.io/page/addons.html?utm_source=celery&amp;utm_content=flyout">Addons documentation</a></span>
+        <span> â€• </span>
+        <span>Hosted by
+          <a href="https://about.readthedocs.com/?utm_source=celery&amp;utm_content=flyout">Read the Docs</a></span>
+      </small>
+    
+        </main>
+      </div>
+    </template></readthedocs-flyout><readthedocs-notification class="raised toast"><template shadowmode="open"><!----></template></readthedocs-notification><readthedocs-search class="raised floating"><template shadowmode="open"><!---->
+      
+    </template></readthedocs-search><readthedocs-hotkeys><template shadowmode="open"><!----></template></readthedocs-hotkeys></body></html>
+------MultipartBoundary--mS6LKizeQ8IE5y3xAQoqRLsux71kipjNUs9WpsmKX0----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: cid:css-dda9a4a4-5738-408b-a9e6-cdd2e03db0a4@mhtml.blink
+
+@charset "utf-8";
+
+:root, :host { --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free"; --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free"; --fa-font-light: normal 300 1em/1 "Font Awesome 6 Pro"; --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Pro"; --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone"; --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands"; --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp"; --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp"; --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp"; --fa-font-sharp-thin: normal 100 1em/1 "Font Awesome 6 Sharp"; --fa-font-sharp-duotone-solid: normal 900 1em/1 "Font Awesome 6 Sharp Duotone"; }
+
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa { overflow: visible; box-sizing: content-box; }
+
+.svg-inline--fa { display: var(--fa-display, inline-block); height: 1em; overflow: visible; vertical-align: -0.125em; }
+
+.svg-inline--fa.fa-2xs { vertical-align: 0.1em; }
+
+.svg-inline--fa.fa-xs { vertical-align: 0em; }
+
+.svg-inline--fa.fa-sm { vertical-align: -0.0714286em; }
+
+.svg-inline--fa.fa-lg { vertical-align: -0.2em; }
+
+.svg-inline--fa.fa-xl { vertical-align: -0.25em; }
+
+.svg-inline--fa.fa-2xl { vertical-align: -0.3125em; }
+
+.svg-inline--fa.fa-pull-left { margin-right: var(--fa-pull-margin, 0.3em); width: auto; }
+
+.svg-inline--fa.fa-pull-right { margin-left: var(--fa-pull-margin, 0.3em); width: auto; }
+
+.svg-inline--fa.fa-li { width: var(--fa-li-width, 2em); top: 0.25em; }
+
+.svg-inline--fa.fa-fw { width: var(--fa-fw-width, 1.25em); }
+
+.fa-layers svg.svg-inline--fa { inset: 0px; margin: auto; position: absolute; }
+
+.fa-layers-counter, .fa-layers-text { display: inline-block; position: absolute; text-align: center; }
+
+.fa-layers { display: inline-block; height: 1em; position: relative; text-align: center; vertical-align: -0.125em; width: 1em; }
+
+.fa-layers svg.svg-inline--fa { transform-origin: center center; }
+
+.fa-layers-text { left: 50%; top: 50%; transform: translate(-50%, -50%); transform-origin: center center; }
+
+.fa-layers-counter { background-color: var(--fa-counter-background-color, #ff253a); border-radius: var(--fa-counter-border-radius, 1em); box-sizing: border-box; color: var(--fa-inverse, #fff); line-height: var(--fa-counter-line-height, 1); max-width: var(--fa-counter-max-width, 5em); min-width: var(--fa-counter-min-width, 1.5em); overflow: hidden; padding: var(--fa-counter-padding, 0.25em 0.5em); right: var(--fa-right, 0); text-overflow: ellipsis; top: var(--fa-top, 0); transform: scale(var(--fa-counter-scale, 0.25)); transform-origin: right top; }
+
+.fa-layers-bottom-right { bottom: var(--fa-bottom, 0); right: var(--fa-right, 0); top: auto; transform: scale(var(--fa-layers-scale, 0.25)); transform-origin: right bottom; }
+
+.fa-layers-bottom-left { bottom: var(--fa-bottom, 0); left: var(--fa-left, 0); right: auto; top: auto; transform: scale(var(--fa-layers-scale, 0.25)); transform-origin: left bottom; }
+
+.fa-layers-top-right { top: var(--fa-top, 0); right: var(--fa-right, 0); transform: scale(var(--fa-layers-scale, 0.25)); transform-origin: right top; }
+
+.fa-layers-top-left { left: var(--fa-left, 0); right: auto; top: var(--fa-top, 0); transform: scale(var(--fa-layers-scale, 0.25)); transform-origin: left top; }
+
+.fa-1x { font-size: 1em; }
+
+.fa-2x { font-size: 2em; }
+
+.fa-3x { font-size: 3em; }
+
+.fa-4x { font-size: 4em; }
+
+.fa-5x { font-size: 5em; }
+
+.fa-6x { font-size: 6em; }
+
+.fa-7x { font-size: 7em; }
+
+.fa-8x { font-size: 8em; }
+
+.fa-9x { font-size: 9em; }
+
+.fa-10x { font-size: 10em; }
+
+.fa-2xs { font-size: 0.625em; line-height: 0.1em; vertical-align: 0.225em; }
+
+.fa-xs { font-size: 0.75em; line-height: 0.0833333em; vertical-align: 0.125em; }
+
+.fa-sm { font-size: 0.875em; line-height: 0.0714286em; vertical-align: 0.0535714em; }
+
+.fa-lg { font-size: 1.25em; line-height: 0.05em; vertical-align: -0.075em; }
+
+.fa-xl { font-size: 1.5em; line-height: 0.0416667em; vertical-align: -0.125em; }
+
+.fa-2xl { font-size: 2em; line-height: 0.03125em; vertical-align: -0.1875em; }
+
+.fa-fw { text-align: center; width: 1.25em; }
+
+.fa-ul { list-style-type: none; margin-left: var(--fa-li-margin, 2.5em); padding-left: 0px; }
+
+.fa-ul > li { position: relative; }
+
+.fa-li { left: calc(-1 * var(--fa-li-width, 2em)); position: absolute; text-align: center; width: var(--fa-li-width, 2em); line-height: inherit; }
+
+.fa-border { border-color: var(--fa-border-color, #eee); border-radius: var(--fa-border-radius, 0.1em); border-style: var(--fa-border-style, solid); border-width: var(--fa-border-width, 0.08em); padding: var(--fa-border-padding, 0.2em 0.25em 0.15em); }
+
+.fa-pull-left { float: left; margin-right: var(--fa-pull-margin, 0.3em); }
+
+.fa-pull-right { float: right; margin-left: var(--fa-pull-margin, 0.3em); }
+
+.fa-beat { animation-name: fa-beat; animation-delay: var(--fa-animation-delay, 0s); animation-direction: var(--fa-animation-direction, normal); animation-duration: var(--fa-animation-duration, 1s); animation-iteration-count: var(--fa-animation-iteration-count, infinite); animation-timing-function: var(--fa-animation-timing, ease-in-out); }
+
+.fa-bounce { animation-name: fa-bounce; animation-delay: var(--fa-animation-delay, 0s); animation-direction: var(--fa-animation-direction, normal); animation-duration: var(--fa-animation-duration, 1s); animation-iteration-count: var(--fa-animation-iteration-count, infinite); animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1)); }
+
+.fa-fade { animation-name: fa-fade; animation-delay: var(--fa-animation-delay, 0s); animation-direction: var(--fa-animation-direction, normal); animation-duration: var(--fa-animation-duration, 1s); animation-iteration-count: var(--fa-animation-iteration-count, infinite); animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1)); }
+
+.fa-beat-fade { animation-name: fa-beat-fade; animation-delay: var(--fa-animation-delay, 0s); animation-direction: var(--fa-animation-direction, normal); animation-duration: var(--fa-animation-duration, 1s); animation-iteration-count: var(--fa-animation-iteration-count, infinite); animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1)); }
+
+.fa-flip { animation-name: fa-flip; animation-delay: var(--fa-animation-delay, 0s); animation-direction: var(--fa-animation-direction, normal); animation-duration: var(--fa-animation-duration, 1s); animation-iteration-count: var(--fa-animation-iteration-count, infinite); animation-timing-function: var(--fa-animation-timing, ease-in-out); }
+
+.fa-shake { animation-name: fa-shake; animation-delay: var(--fa-animation-delay, 0s); animation-direction: var(--fa-animation-direction, normal); animation-duration: var(--fa-animation-duration, 1s); animation-iteration-count: var(--fa-animation-iteration-count, infinite); animation-timing-function: var(--fa-animation-timing, linear); }
+
+.fa-spin { animation-name: fa-spin; animation-delay: var(--fa-animation-delay, 0s); animation-direction: var(--fa-animation-direction, normal); animation-duration: var(--fa-animation-duration, 2s); animation-iteration-count: var(--fa-animation-iteration-count, infinite); animation-timing-function: var(--fa-animation-timing, linear); }
+
+.fa-spin-reverse { --fa-animation-direction: reverse; }
+
+.fa-pulse, .fa-spin-pulse { animation-name: fa-spin; animation-direction: var(--fa-animation-direction, normal); animation-duration: var(--fa-animation-duration, 1s); animation-iteration-count: var(--fa-animation-iteration-count, infinite); animation-timing-function: var(--fa-animation-timing, steps(8)); }
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-beat, .fa-bounce, .fa-fade, .fa-beat-fade, .fa-flip, .fa-pulse, .fa-shake, .fa-spin, .fa-spin-pulse { animation-delay: -1ms; animation-duration: 1ms; animation-iteration-count: 1; transition-delay: 0s; transition-duration: 0s; }
+}
+
+@keyframes fa-beat { 
+  0%, 90% { transform: scale(1); }
+  45% { transform: scale(var(--fa-beat-scale, 1.25)); }
+}
+
+@keyframes fa-bounce { 
+  0% { transform: scale(1, 1) translateY(0px); }
+  10% { transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0); }
+  30% { transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em)); }
+  50% { transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0); }
+  57% { transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em)); }
+  64% { transform: scale(1, 1) translateY(0px); }
+  100% { transform: scale(1, 1) translateY(0px); }
+}
+
+@keyframes fa-fade { 
+  50% { opacity: var(--fa-fade-opacity, 0.4); }
+}
+
+@keyframes fa-beat-fade { 
+  0%, 100% { opacity: var(--fa-beat-fade-opacity, 0.4); transform: scale(1); }
+  50% { opacity: 1; transform: scale(var(--fa-beat-fade-scale, 1.125)); }
+}
+
+@keyframes fa-flip { 
+  50% { transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg)); }
+}
+
+@keyframes fa-shake { 
+  0% { transform: rotate(-15deg); }
+  4% { transform: rotate(15deg); }
+  8%, 24% { transform: rotate(-18deg); }
+  12%, 28% { transform: rotate(18deg); }
+  16% { transform: rotate(-22deg); }
+  20% { transform: rotate(22deg); }
+  32% { transform: rotate(-12deg); }
+  36% { transform: rotate(12deg); }
+  40%, 100% { transform: rotate(0deg); }
+}
+
+@keyframes fa-spin { 
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.fa-rotate-90 { transform: rotate(90deg); }
+
+.fa-rotate-180 { transform: rotate(180deg); }
+
+.fa-rotate-270 { transform: rotate(270deg); }
+
+.fa-flip-horizontal { transform: scale(-1, 1); }
+
+.fa-flip-vertical { transform: scale(1, -1); }
+
+.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical { transform: scale(-1, -1); }
+
+.fa-rotate-by { transform: rotate(var(--fa-rotate-angle, 0)); }
+
+.fa-stack { display: inline-block; vertical-align: middle; height: 2em; position: relative; width: 2.5em; }
+
+.fa-stack-1x, .fa-stack-2x { inset: 0px; margin: auto; position: absolute; z-index: var(--fa-stack-z-index, auto); }
+
+.svg-inline--fa.fa-stack-1x { height: 1em; width: 1.25em; }
+
+.svg-inline--fa.fa-stack-2x { height: 2em; width: 2.5em; }
+
+.fa-inverse { color: var(--fa-inverse, #fff); }
+
+.sr-only, .fa-sr-only { position: absolute; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px; }
+
+.sr-only-focusable:not(:focus), .fa-sr-only-focusable:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px; }
+
+.svg-inline--fa .fa-primary { fill: var(--fa-primary-color, currentColor); opacity: var(--fa-primary-opacity, 1); }
+
+.svg-inline--fa .fa-secondary { fill: var(--fa-secondary-color, currentColor); opacity: var(--fa-secondary-opacity, 0.4); }
+
+.svg-inline--fa.fa-swap-opacity .fa-primary { opacity: var(--fa-secondary-opacity, 0.4); }
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary { opacity: var(--fa-primary-opacity, 1); }
+
+.svg-inline--fa mask .fa-primary, .svg-inline--fa mask .fa-secondary { fill: black; }
+
+.fad.fa-inverse, .fa-duotone.fa-inverse { color: var(--fa-inverse, #fff); }
+------MultipartBoundary--mS6LKizeQ8IE5y3xAQoqRLsux71kipjNUs9WpsmKX0----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: cid:css-3d89fa97-23c5-4420-a41d-3745341879cb@mhtml.blink
+
+@charset "utf-8";
+
+[data-ea-publisher].loaded, [data-ea-type].loaded { font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; font-weight: normal; font-style: normal; letter-spacing: 0px; vertical-align: baseline; line-height: 1.3em; }
+
+[data-ea-publisher].loaded a, [data-ea-type].loaded a { text-decoration: none; }
+
+[data-ea-publisher].loaded .ea-pixel, [data-ea-type].loaded .ea-pixel { display: none; }
+
+[data-ea-publisher].loaded .ea-content, [data-ea-type].loaded .ea-content { margin: 1em 1em 0.5em; padding: 1em; background: rgba(0, 0, 0, 0.03); color: rgb(80, 80, 80); }
+
+[data-ea-publisher].loaded .ea-content a:link, [data-ea-type].loaded .ea-content a:link { color: rgb(80, 80, 80); }
+
+[data-ea-publisher].loaded .ea-content a:visited, [data-ea-type].loaded .ea-content a:visited { color: rgb(80, 80, 80); }
+
+[data-ea-publisher].loaded .ea-content a:hover, [data-ea-type].loaded .ea-content a:hover { color: rgb(55, 55, 55); }
+
+[data-ea-publisher].loaded .ea-content a:active, [data-ea-type].loaded .ea-content a:active { color: rgb(55, 55, 55); }
+
+[data-ea-publisher].loaded .ea-content a strong, [data-ea-publisher].loaded .ea-content a b, [data-ea-type].loaded .ea-content a strong, [data-ea-type].loaded .ea-content a b { color: rgb(8, 140, 219); }
+
+[data-ea-publisher].loaded .ea-callout a:link, [data-ea-type].loaded .ea-callout a:link { color: rgb(106, 106, 106); }
+
+[data-ea-publisher].loaded .ea-callout a:visited, [data-ea-type].loaded .ea-callout a:visited { color: rgb(106, 106, 106); }
+
+[data-ea-publisher].loaded .ea-callout a:hover, [data-ea-type].loaded .ea-callout a:hover { color: rgb(80, 80, 80); }
+
+[data-ea-publisher].loaded .ea-callout a:active, [data-ea-type].loaded .ea-callout a:active { color: rgb(80, 80, 80); }
+
+[data-ea-publisher].loaded .ea-callout a strong, [data-ea-publisher].loaded .ea-callout a b, [data-ea-type].loaded .ea-callout a strong, [data-ea-type].loaded .ea-callout a b { color: rgb(8, 140, 219); }
+
+[data-ea-publisher].loaded .ea-callout a, [data-ea-type].loaded .ea-callout a { font-size: 0.8em; }
+
+[data-ea-publisher].loaded .ea-domain, [data-ea-type].loaded .ea-domain { margin-top: 0.75em; font-size: 0.8em; text-align: center; color: rgb(157, 157, 157); }
+
+[data-ea-publisher].loaded.dark .ea-content, [data-ea-type].loaded.dark .ea-content { background: rgba(255, 255, 255, 0.05); color: rgb(220, 220, 220); }
+
+[data-ea-publisher].loaded.dark .ea-content a:link, [data-ea-type].loaded.dark .ea-content a:link { color: rgb(220, 220, 220); }
+
+[data-ea-publisher].loaded.dark .ea-content a:visited, [data-ea-type].loaded.dark .ea-content a:visited { color: rgb(220, 220, 220); }
+
+[data-ea-publisher].loaded.dark .ea-content a:hover, [data-ea-type].loaded.dark .ea-content a:hover { color: rgb(246, 246, 246); }
+
+[data-ea-publisher].loaded.dark .ea-content a:active, [data-ea-type].loaded.dark .ea-content a:active { color: rgb(246, 246, 246); }
+
+[data-ea-publisher].loaded.dark .ea-content a strong, [data-ea-publisher].loaded.dark .ea-content a b, [data-ea-type].loaded.dark .ea-content a strong, [data-ea-type].loaded.dark .ea-content a b { color: rgb(80, 186, 249); }
+
+[data-ea-publisher].loaded.dark .ea-callout a:link, [data-ea-type].loaded.dark .ea-callout a:link { color: rgb(195, 195, 195); }
+
+[data-ea-publisher].loaded.dark .ea-callout a:visited, [data-ea-type].loaded.dark .ea-callout a:visited { color: rgb(195, 195, 195); }
+
+[data-ea-publisher].loaded.dark .ea-callout a:hover, [data-ea-type].loaded.dark .ea-callout a:hover { color: rgb(220, 220, 220); }
+
+[data-ea-publisher].loaded.dark .ea-callout a:active, [data-ea-type].loaded.dark .ea-callout a:active { color: rgb(220, 220, 220); }
+
+[data-ea-publisher].loaded.dark .ea-callout a strong, [data-ea-publisher].loaded.dark .ea-callout a b, [data-ea-type].loaded.dark .ea-callout a strong, [data-ea-type].loaded.dark .ea-callout a b { color: rgb(80, 186, 249); }
+
+[data-ea-publisher].loaded.dark .ea-domain, [data-ea-type].loaded.dark .ea-domain { color: rgb(144, 144, 144); }
+
+@media (prefers-color-scheme: dark) {
+  [data-ea-publisher].loaded.adaptive .ea-content, [data-ea-type].loaded.adaptive .ea-content { background: rgba(255, 255, 255, 0.05); color: rgb(220, 220, 220); }
+  [data-ea-publisher].loaded.adaptive .ea-content a:link, [data-ea-type].loaded.adaptive .ea-content a:link { color: rgb(220, 220, 220); }
+  [data-ea-publisher].loaded.adaptive .ea-content a:visited, [data-ea-type].loaded.adaptive .ea-content a:visited { color: rgb(220, 220, 220); }
+  [data-ea-publisher].loaded.adaptive .ea-content a:hover, [data-ea-type].loaded.adaptive .ea-content a:hover { color: rgb(246, 246, 246); }
+  [data-ea-publisher].loaded.adaptive .ea-content a:active, [data-ea-type].loaded.adaptive .ea-content a:active { color: rgb(246, 246, 246); }
+  [data-ea-publisher].loaded.adaptive .ea-content a strong, [data-ea-publisher].loaded.adaptive .ea-content a b, [data-ea-type].loaded.adaptive .ea-content a strong, [data-ea-type].loaded.adaptive .ea-content a b { color: rgb(80, 186, 249); }
+  [data-ea-publisher].loaded.adaptive .ea-callout a:link, [data-ea-type].loaded.adaptive .ea-callout a:link { color: rgb(195, 195, 195); }
+  [data-ea-publisher].loaded.adaptive .ea-callout a:visited, [data-ea-type].loaded.adaptive .ea-callout a:visited { color: rgb(195, 195, 195); }
+  [data-ea-publisher].loaded.adaptive .ea-callout a:hover, [data-ea-type].loaded.adaptive .ea-callout a:hover { color: rgb(220, 220, 220); }
+  [data-ea-publisher].loaded.adaptive .ea-callout a:active, [data-ea-type].loaded.adaptive .ea-callout a:active { color: rgb(220, 220, 220); }
+  [data-ea-publisher].loaded.adaptive .ea-callout a strong, [data-ea-publisher].loaded.adaptive .ea-callout a b, [data-ea-type].loaded.adaptive .ea-callout a strong, [data-ea-type].loaded.adaptive .ea-callout a b { color: rgb(80, 186, 249); }
+  [data-ea-publisher].loaded.adaptive .ea-domain, [data-ea-type].loaded.adaptive .ea-domain { color: rgb(144, 144, 144); }
+}
+
+[data-ea-publisher].loaded .ea-content, [data-ea-type].loaded .ea-content { border: 0px; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 3px; }
+
+[data-ea-publisher].loaded.raised .ea-content, [data-ea-type].loaded.raised .ea-content { border: 0px; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 3px; }
+
+[data-ea-publisher].loaded.bordered .ea-content, [data-ea-type].loaded.bordered .ea-content { border: 1px solid rgba(0, 0, 0, 0.04); border-radius: 3px; box-shadow: none; }
+
+[data-ea-publisher].loaded.bordered.dark .ea-content, [data-ea-type].loaded.bordered.dark .ea-content { border: 1px solid rgba(255, 255, 255, 0.07); }
+
+@media (prefers-color-scheme: dark) {
+  [data-ea-publisher].loaded.bordered.adaptive .ea-content, [data-ea-type].loaded.bordered.adaptive .ea-content { border: 1px solid rgba(255, 255, 255, 0.07); }
+}
+
+[data-ea-publisher].loaded.flat .ea-content, [data-ea-type].loaded.flat .ea-content { border: 0px; border-radius: 3px; box-shadow: none; }
+
+[data-ea-type="image"].loaded, [data-ea-publisher]:not([data-ea-type]).loaded, .ea-type-image { display: inline-block; }
+
+[data-ea-type="image"].loaded .ea-content, [data-ea-publisher]:not([data-ea-type]).loaded .ea-content, .ea-type-image .ea-content { max-width: 180px; overflow: auto; text-align: center; }
+
+[data-ea-type="image"].loaded .ea-content > a > img, [data-ea-publisher]:not([data-ea-type]).loaded .ea-content > a > img, .ea-type-image .ea-content > a > img { width: 120px; height: 90px; display: inline-block; }
+
+[data-ea-type="image"].loaded .ea-content > .ea-text, [data-ea-publisher]:not([data-ea-type]).loaded .ea-content > .ea-text, .ea-type-image .ea-content > .ea-text { margin-top: 1em; font-size: 1em; text-align: center; }
+
+[data-ea-type="image"].loaded .ea-callout, [data-ea-publisher]:not([data-ea-type]).loaded .ea-callout, .ea-type-image .ea-callout { max-width: 180px; margin: 0em 1em 1em; padding-left: 1em; padding-right: 1em; font-style: italic; text-align: right; }
+
+[data-ea-type="image"].loaded.horizontal .ea-content, [data-ea-publisher]:not([data-ea-type]).loaded.horizontal .ea-content, .ea-type-image.horizontal .ea-content { max-width: 320px; }
+
+[data-ea-type="image"].loaded.horizontal .ea-content > a > img, [data-ea-publisher]:not([data-ea-type]).loaded.horizontal .ea-content > a > img, .ea-type-image.horizontal .ea-content > a > img { float: left; margin-right: 1em; }
+
+[data-ea-type="image"].loaded.horizontal .ea-content .ea-text, [data-ea-publisher]:not([data-ea-type]).loaded.horizontal .ea-content .ea-text, .ea-type-image.horizontal .ea-content .ea-text { margin-top: 0em; text-align: left; overflow: auto; }
+
+[data-ea-type="image"].loaded.horizontal .ea-callout, [data-ea-publisher]:not([data-ea-type]).loaded.horizontal .ea-callout, .ea-type-image.horizontal .ea-callout { max-width: 320px; text-align: right; }
+
+[data-ea-type="text"].loaded, .ea-type-text { font-size: 14px; }
+
+[data-ea-type="text"].loaded .ea-content, .ea-type-text .ea-content { text-align: left; }
+
+[data-ea-type="text"].loaded .ea-callout, .ea-type-text .ea-callout { margin: 0.5em 1em 1em; padding-left: 1em; padding-right: 1em; text-align: right; font-style: italic; }
+
+[data-ea-style="stickybox"].loaded { position: fixed; bottom: 20px; right: 20px; z-index: 100; }
+
+[data-ea-style="stickybox"].loaded .ea-type-image .ea-stickybox-hide { cursor: pointer; position: absolute; top: 0.75em; right: 0.75em; background-color: rgb(254, 254, 254); border: 1px solid rgb(8, 140, 219); border-radius: 50%; color: rgb(8, 140, 219); font-size: 1em; text-align: center; height: 1.5em; width: 1.5em; line-height: 1.4; }
+
+@media (max-width: 1300px) {
+  [data-ea-style="stickybox"].loaded { position: static; bottom: 0px; right: 0px; margin: auto; text-align: center; }
+  [data-ea-style="stickybox"].loaded .ea-stickybox-hide { display: none; }
+}
+
+@media (min-width: 1301px) {
+  [data-ea-style="stickybox"].loaded .ea-type-image .ea-content { background: rgb(220, 220, 220); }
+  [data-ea-style="stickybox"].loaded.dark .ea-type-image .ea-content { background: rgb(80, 80, 80); }
+}
+
+@media (min-width: 1301px) and (prefers-color-scheme: dark) {
+  [data-ea-style="stickybox"].loaded.adaptive .ea-type-image .ea-content { background: rgb(80, 80, 80); }
+}
+
+[data-ea-style="fixedfooter"].loaded { position: fixed; bottom: 0px; left: 0px; z-index: 200; width: 100%; max-width: 100%; }
+
+[data-ea-style="fixedfooter"].loaded .ea-type-text { width: 100%; max-width: 100%; display: flex; z-index: 200; background: rgb(220, 220, 220); }
+
+[data-ea-style="fixedfooter"].loaded .ea-type-text .ea-content { border: 0px; border-radius: 3px; box-shadow: none; }
+
+[data-ea-style="fixedfooter"].loaded .ea-type-text .ea-content { background-color: inherit; max-width: 100%; margin: 0px; padding: 1em; flex: 1 1 auto; }
+
+[data-ea-style="fixedfooter"].loaded .ea-type-text .ea-callout { max-width: 100%; margin: 0px; padding: 1em; flex: initial; }
+
+@media (max-width: 576px) {
+  [data-ea-style="fixedfooter"].loaded .ea-type-text .ea-callout { display: none; }
+}
+
+[data-ea-style="fixedfooter"].loaded .ea-type-text .ea-fixedfooter-hide { cursor: pointer; color: rgb(80, 80, 80); padding: 1em; flex: initial; margin: auto 0px; }
+
+[data-ea-style="fixedfooter"].loaded .ea-type-text .ea-fixedfooter-hide span { padding: 0.25em; font-size: 0.8em; font-weight: bold; border: 0.15em solid rgb(80, 80, 80); border-radius: 0.5em; white-space: nowrap; }
+
+[data-ea-style="fixedfooter"].loaded.dark .ea-type-text { background: rgb(80, 80, 80); }
+
+[data-ea-style="fixedfooter"].loaded.dark .ea-type-text .ea-fixedfooter-hide span { color: rgb(220, 220, 220); border-color: rgb(220, 220, 220); }
+
+@media (prefers-color-scheme: dark) {
+  [data-ea-style="fixedfooter"].loaded.adaptive .ea-type-text { background: rgb(80, 80, 80); }
+  [data-ea-style="fixedfooter"].loaded.adaptive .ea-type-text .ea-fixedfooter-hide span { color: rgb(220, 220, 220); border-color: rgb(220, 220, 220); }
+}
+------MultipartBoundary--mS6LKizeQ8IE5y3xAQoqRLsux71kipjNUs9WpsmKX0----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: https://docs.celeryq.dev/en/v5.4.0/_static/pygments.css?v=82a976d7
+
+@charset "utf-8";
+
+pre { line-height: 125%; }
+
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+
+td.linenos .special { color: rgb(0, 0, 0); background-color: rgb(255, 255, 192); padding-left: 5px; padding-right: 5px; }
+
+span.linenos.special { color: rgb(0, 0, 0); background-color: rgb(255, 255, 192); padding-left: 5px; padding-right: 5px; }
+
+.highlight .hll { background-color: rgb(255, 255, 204); }
+
+.highlight { background: rgb(255, 255, 255); }
+
+.highlight .c { color: rgb(136, 136, 136); }
+
+.highlight .err { color: rgb(255, 0, 0); background-color: rgb(255, 170, 170); }
+
+.highlight .k { color: rgb(0, 136, 0); font-weight: bold; }
+
+.highlight .o { color: rgb(51, 51, 51); }
+
+.highlight .ch { color: rgb(136, 136, 136); }
+
+.highlight .cm { color: rgb(136, 136, 136); }
+
+.highlight .cp { color: rgb(85, 119, 153); }
+
+.highlight .cpf { color: rgb(136, 136, 136); }
+
+.highlight .c1 { color: rgb(136, 136, 136); }
+
+.highlight .cs { color: rgb(204, 0, 0); font-weight: bold; }
+
+.highlight .gd { color: rgb(160, 0, 0); }
+
+.highlight .ge { font-style: italic; }
+
+.highlight .ges { font-weight: bold; font-style: italic; }
+
+.highlight .gr { color: rgb(255, 0, 0); }
+
+.highlight .gh { color: rgb(0, 0, 128); font-weight: bold; }
+
+.highlight .gi { color: rgb(0, 160, 0); }
+
+.highlight .go { color: rgb(136, 136, 136); }
+
+.highlight .gp { color: rgb(198, 93, 9); font-weight: bold; }
+
+.highlight .gs { font-weight: bold; }
+
+.highlight .gu { color: rgb(128, 0, 128); font-weight: bold; }
+
+.highlight .gt { color: rgb(0, 68, 221); }
+
+.highlight .kc { color: rgb(0, 136, 0); font-weight: bold; }
+
+.highlight .kd { color: rgb(0, 136, 0); font-weight: bold; }
+
+.highlight .kn { color: rgb(0, 136, 0); font-weight: bold; }
+
+.highlight .kp { color: rgb(0, 51, 136); font-weight: bold; }
+
+.highlight .kr { color: rgb(0, 136, 0); font-weight: bold; }
+
+.highlight .kt { color: rgb(51, 51, 153); font-weight: bold; }
+
+.highlight .m { color: rgb(102, 0, 238); font-weight: bold; }
+
+.highlight .s { background-color: rgb(255, 240, 240); }
+
+.highlight .na { color: rgb(0, 0, 204); }
+
+.highlight .nb { color: rgb(0, 112, 32); }
+
+.highlight .nc { color: rgb(187, 0, 102); font-weight: bold; }
+
+.highlight .no { color: rgb(0, 51, 102); font-weight: bold; }
+
+.highlight .nd { color: rgb(85, 85, 85); font-weight: bold; }
+
+.highlight .ni { color: rgb(136, 0, 0); font-weight: bold; }
+
+.highlight .ne { color: rgb(255, 0, 0); font-weight: bold; }
+
+.highlight .nf { color: rgb(0, 102, 187); font-weight: bold; }
+
+.highlight .nl { color: rgb(153, 119, 0); font-weight: bold; }
+
+.highlight .nn { color: rgb(14, 132, 181); font-weight: bold; }
+
+.highlight .nt { color: rgb(0, 119, 0); }
+
+.highlight .nv { color: rgb(153, 102, 51); }
+
+.highlight .ow { color: rgb(0, 0, 0); font-weight: bold; }
+
+.highlight .w { color: rgb(187, 187, 187); }
+
+.highlight .mb { color: rgb(102, 0, 238); font-weight: bold; }
+
+.highlight .mf { color: rgb(102, 0, 238); font-weight: bold; }
+
+.highlight .mh { color: rgb(0, 85, 136); font-weight: bold; }
+
+.highlight .mi { color: rgb(0, 0, 221); font-weight: bold; }
+
+.highlight .mo { color: rgb(68, 0, 238); font-weight: bold; }
+
+.highlight .sa { background-color: rgb(255, 240, 240); }
+
+.highlight .sb { background-color: rgb(255, 240, 240); }
+
+.highlight .sc { color: rgb(0, 68, 221); }
+
+.highlight .dl { background-color: rgb(255, 240, 240); }
+
+.highlight .sd { color: rgb(221, 68, 34); }
+
+.highlight .s2 { background-color: rgb(255, 240, 240); }
+
+.highlight .se { color: rgb(102, 102, 102); font-weight: bold; background-color: rgb(255, 240, 240); }
+
+.highlight .sh { background-color: rgb(255, 240, 240); }
+
+.highlight .si { background-color: rgb(238, 238, 238); }
+
+.highlight .sx { color: rgb(221, 34, 0); background-color: rgb(255, 240, 240); }
+
+.highlight .sr { color: rgb(0, 0, 0); background-color: rgb(255, 240, 255); }
+
+.highlight .s1 { background-color: rgb(255, 240, 240); }
+
+.highlight .ss { color: rgb(170, 102, 0); }
+
+.highlight .bp { color: rgb(0, 112, 32); }
+
+.highlight .fm { color: rgb(0, 102, 187); font-weight: bold; }
+
+.highlight .vc { color: rgb(51, 102, 153); }
+
+.highlight .vg { color: rgb(221, 119, 0); font-weight: bold; }
+
+.highlight .vi { color: rgb(51, 51, 187); }
+
+.highlight .vm { color: rgb(153, 102, 51); }
+
+.highlight .il { color: rgb(0, 0, 221); font-weight: bold; }
+------MultipartBoundary--mS6LKizeQ8IE5y3xAQoqRLsux71kipjNUs9WpsmKX0----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: https://docs.celeryq.dev/en/v5.4.0/_static/celery.css?v=9ab87318
+
+@charset "utf-8";
+
+@import url("basic.css");
+
+body { font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif; font-size: 17px; background-color: white; color: rgb(0, 0, 0); margin: 30px 0px 0px; padding: 0px; }
+
+div.document { width: 940px; margin: 0px auto; }
+
+div.deck { font-size: 18px; }
+
+p.developmentversion { color: red; }
+
+div.related { width: 920px; padding: 5px 10px; background: rgb(242, 252, 238); margin: 15px auto; }
+
+div.documentwrapper { float: left; width: 100%; }
+
+div.bodywrapper { margin: 0px 0px 0px 220px; }
+
+div.sphinxsidebar { width: 220px; }
+
+hr { border: 1px solid rgb(177, 180, 182); }
+
+div.body { background-color: rgb(255, 255, 255); color: rgb(62, 67, 73); padding: 0px 30px; }
+
+img.celerylogo { padding: 0px 0px 10px 10px; float: right; }
+
+div.footer { width: 925px; margin: 10px auto 30px; padding-right: 15px; font-size: 14px; color: rgb(136, 136, 136); text-align: right; }
+
+div.footer a { color: rgb(136, 136, 136); }
+
+div.sphinxsidebar a { color: rgb(68, 68, 68); text-decoration: none; border-bottom: 1px dashed rgb(220, 240, 213); }
+
+div.sphinxsidebar a:hover { border-bottom: 1px solid rgb(153, 153, 153); }
+
+div.sphinxsidebar { font-size: 14px; line-height: 1.5; }
+
+div.sphinxsidebarwrapper { padding: 7px 10px; }
+
+div.sphinxsidebarwrapper p.logo { padding: 0px 0px 20px; margin: 0px; }
+
+div.sphinxsidebar h3, div.sphinxsidebar h4 { font-family: Futura, "Trebuchet MS", Arial, sans-serif; color: rgb(68, 68, 68); font-size: 24px; font-weight: normal; margin: 0px 0px 5px; padding: 0px; }
+
+div.sphinxsidebar h4 { font-size: 20px; }
+
+div.sphinxsidebar h3 a { color: rgb(68, 68, 68); }
+
+div.sphinxsidebar p.logo a, div.sphinxsidebar h3 a, div.sphinxsidebar p.logo a:hover, div.sphinxsidebar h3 a:hover { border: none; }
+
+div.sphinxsidebar p { color: rgb(85, 85, 85); margin: 10px 0px; }
+
+div.sphinxsidebar ul { margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); }
+
+div.sphinxsidebar input { border: 1px solid rgb(204, 204, 204); font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif; font-size: 1em; }
+
+a { color: rgb(52, 134, 19); text-decoration: underline; }
+
+a:hover { color: rgb(89, 184, 51); text-decoration: underline; }
+
+div.body h1, div.body h2, div.body h3, div.body h4, div.body h5, div.body h6 { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-weight: normal; margin: 30px 0px 10px; padding: 0px; }
+
+div.body h1 { margin-top: 0px; padding-top: 0px; font-size: 200%; }
+
+div.body h2 { font-size: 180%; }
+
+div.body h3 { font-size: 150%; }
+
+div.body h4 { font-size: 130%; }
+
+div.body h5 { font-size: 100%; }
+
+div.body h6 { font-size: 100%; }
+
+div.body h1 a.toc-backref, div.body h2 a.toc-backref, div.body h3 a.toc-backref, div.body h4 a.toc-backref, div.body h5 a.toc-backref, div.body h6 a.toc-backref { text-decoration: none; color: inherit !important; }
+
+a.headerlink { color: rgb(221, 221, 221); padding: 0px 4px; text-decoration: none; }
+
+a.headerlink:hover { color: rgb(68, 68, 68); background: rgb(234, 234, 234); }
+
+div.body p, div.body dd, div.body li { line-height: 1.4em; }
+
+div.admonition { background: rgb(250, 250, 250); margin: 20px -30px; padding: 10px 30px; border-top: 1px solid rgb(204, 204, 204); border-bottom: 1px solid rgb(204, 204, 204); }
+
+div.admonition p.admonition-title { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-weight: normal; font-size: 24px; margin: 0px 0px 10px; padding: 0px; line-height: 1; }
+
+div.admonition p.last { margin-bottom: 0px; }
+
+div.highlight { background-color: white; }
+
+dt:target, .highlight { background: rgb(250, 243, 232); }
+
+div.note { background-color: rgb(238, 238, 238); border: 1px solid rgb(204, 204, 204); }
+
+div.seealso { background-color: rgb(255, 255, 204); border: 1px solid rgb(255, 255, 102); }
+
+div.topic { background-color: rgb(238, 238, 238); }
+
+div.warning { background-color: rgb(255, 228, 228); border: 1px solid rgb(255, 102, 102); }
+
+p.admonition-title { display: inline; }
+
+p.admonition-title::after { content: ":"; }
+
+pre, tt { font-family: Consolas, Menlo, "Deja Vu Sans Mono", "Bitstream Vera Sans Mono", monospace; font-size: 0.9em; }
+
+img.screenshot { }
+
+tt.descname, tt.descclassname { font-size: 0.95em; }
+
+tt.descname { padding-right: 0.08em; }
+
+img.screenshot { box-shadow: rgb(238, 238, 238) 2px 2px 4px; }
+
+table.docutils { border: 1px solid rgb(136, 136, 136); box-shadow: rgb(238, 238, 238) 2px 2px 4px; }
+
+table.docutils td, table.docutils th { border: 1px solid rgb(136, 136, 136); padding: 0.25em 0.7em; }
+
+table.field-list, table.footnote { border: none; box-shadow: none; }
+
+table.footnote { margin: 15px 0px; width: 100%; border: 1px solid rgb(238, 238, 238); background: rgb(253, 253, 253); font-size: 0.9em; }
+
+table.footnote + table.footnote { margin-top: -15px; border-top: none; }
+
+table.field-list th { padding: 0px 0.8em 0px 0px; }
+
+table.field-list td { padding: 0px; }
+
+table.footnote td.label { width: 0px; padding: 0.3em 0px 0.3em 0.5em; }
+
+table.footnote td { padding: 0.3em 0.5em; }
+
+dl { margin: 0px; padding: 0px; }
+
+dl dd { margin-left: 30px; }
+
+blockquote { margin: 0px 0px 0px 30px; padding: 0px; }
+
+ul { margin: 10px 0px 10px 30px; padding: 0px; }
+
+pre { background: rgb(240, 255, 235); padding: 7px 10px; margin: 15px 0px; border: 1px solid rgb(199, 236, 184); border-radius: 2px; line-height: 1.3em; }
+
+tt { background: rgb(240, 255, 235); color: rgb(34, 34, 34); }
+
+tt.xref, a tt { background: rgb(240, 255, 235); border-bottom: 1px solid white; }
+
+a.reference { text-decoration: none; border-bottom: 1px dashed rgb(220, 240, 213); }
+
+a.reference:hover { border-bottom: 1px solid rgb(109, 65, 0); }
+
+a.footnote-reference { text-decoration: none; font-size: 0.7em; vertical-align: top; border-bottom: 1px dashed rgb(220, 240, 213); }
+
+a.footnote-reference:hover { border-bottom: 1px solid rgb(109, 65, 0); }
+
+a:hover tt { background: rgb(238, 238, 238); }
+------MultipartBoundary--mS6LKizeQ8IE5y3xAQoqRLsux71kipjNUs9WpsmKX0----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: https://docs.celeryq.dev/en/v5.4.0/_static/basic.css
+
+@charset "utf-8";
+
+div.clearer { clear: both; }
+
+div.section::after { display: block; content: ""; clear: left; }
+
+div.related { width: 100%; font-size: 90%; }
+
+div.related h3 { display: none; }
+
+div.related ul { margin: 0px; padding: 0px 0px 0px 10px; list-style: none; }
+
+div.related li { display: inline; }
+
+div.related li.right { float: right; margin-right: 5px; }
+
+div.sphinxsidebarwrapper { padding: 10px 5px 0px 10px; }
+
+div.sphinxsidebar { float: left; width: 230px; margin-left: -100%; font-size: 90%; overflow-wrap: break-word; }
+
+div.sphinxsidebar ul { list-style: none; }
+
+div.sphinxsidebar ul ul, div.sphinxsidebar ul.want-points { margin-left: 20px; list-style: square; }
+
+div.sphinxsidebar ul ul { margin-top: 0px; margin-bottom: 0px; }
+
+div.sphinxsidebar form { margin-top: 10px; }
+
+div.sphinxsidebar input { border: 1px solid rgb(152, 219, 204); font-family: sans-serif; font-size: 1em; }
+
+div.sphinxsidebar #searchbox form.search { overflow: hidden; }
+
+div.sphinxsidebar #searchbox input[type="text"] { float: left; width: 80%; padding: 0.25em; box-sizing: border-box; }
+
+div.sphinxsidebar #searchbox input[type="submit"] { float: left; width: 20%; border-left: none; padding: 0.25em; box-sizing: border-box; }
+
+img { border: 0px; max-width: 100%; }
+
+ul.search { margin: 10px 0px 0px 20px; padding: 0px; }
+
+ul.search li { padding: 5px 0px 5px 20px; background-image: url("file.png"); background-repeat: no-repeat; background-position: 0px 7px; }
+
+ul.search li a { font-weight: bold; }
+
+ul.search li p.context { color: rgb(136, 136, 136); margin: 2px 0px 0px 30px; text-align: left; }
+
+ul.keywordmatches li.goodmatch a { font-weight: bold; }
+
+table.contentstable { width: 90%; margin-left: auto; margin-right: auto; }
+
+table.contentstable p.biglink { line-height: 150%; }
+
+a.biglink { font-size: 1.3em; }
+
+span.linkdescr { font-style: italic; padding-top: 5px; font-size: 90%; }
+
+table.indextable { width: 100%; }
+
+table.indextable td { text-align: left; vertical-align: top; }
+
+table.indextable ul { margin-top: 0px; margin-bottom: 0px; list-style-type: none; }
+
+table.indextable > tbody > tr > td > ul { padding-left: 0em; }
+
+table.indextable tr.pcap { height: 10px; }
+
+table.indextable tr.cap { margin-top: 10px; background-color: rgb(242, 242, 242); }
+
+img.toggler { margin-right: 3px; margin-top: 3px; cursor: pointer; }
+
+div.modindex-jumpbox { border-top: 1px solid rgb(221, 221, 221); border-bottom: 1px solid rgb(221, 221, 221); margin: 1em 0px; padding: 0.4em; }
+
+div.genindex-jumpbox { border-top: 1px solid rgb(221, 221, 221); border-bottom: 1px solid rgb(221, 221, 221); margin: 1em 0px; padding: 0.4em; }
+
+table.modindextable td { padding: 2px; border-collapse: collapse; }
+
+div.body { min-width: 360px; max-width: 800px; }
+
+div.body p, div.body dd, div.body li, div.body blockquote { hyphens: auto; }
+
+a.headerlink { visibility: hidden; }
+
+a:visited { color: rgb(85, 26, 139); }
+
+h1:hover > a.headerlink, h2:hover > a.headerlink, h3:hover > a.headerlink, h4:hover > a.headerlink, h5:hover > a.headerlink, h6:hover > a.headerlink, dt:hover > a.headerlink, caption:hover > a.headerlink, p.caption:hover > a.headerlink, div.code-block-caption:hover > a.headerlink { visibility: visible; }
+
+div.body p.caption { text-align: inherit; }
+
+div.body td { text-align: left; }
+
+.first { margin-top: 0px !important; }
+
+p.rubric { margin-top: 30px; font-weight: bold; }
+
+img.align-left, figure.align-left, .figure.align-left, object.align-left { clear: left; float: left; margin-right: 1em; }
+
+img.align-right, figure.align-right, .figure.align-right, object.align-right { clear: right; float: right; margin-left: 1em; }
+
+img.align-center, figure.align-center, .figure.align-center, object.align-center { display: block; margin-left: auto; margin-right: auto; }
+
+img.align-default, figure.align-default, .figure.align-default { display: block; margin-left: auto; margin-right: auto; }
+
+.align-left { text-align: left; }
+
+.align-center { text-align: center; }
+
+.align-default { text-align: center; }
+
+.align-right { text-align: right; }
+
+div.sidebar, aside.sidebar { margin: 0px 0px 0.5em 1em; border: 1px solid rgb(221, 221, 187); padding: 7px; background-color: rgb(255, 255, 238); width: 40%; float: right; clear: right; overflow-x: auto; }
+
+p.sidebar-title { font-weight: bold; }
+
+nav.contents, aside.topic, div.admonition, div.topic, blockquote { clear: left; }
+
+nav.contents, aside.topic, div.topic { border: 1px solid rgb(204, 204, 204); padding: 7px; margin: 10px 0px; }
+
+p.topic-title { font-size: 1.1em; font-weight: bold; margin-top: 10px; }
+
+div.admonition { margin-top: 10px; margin-bottom: 10px; padding: 7px; }
+
+div.admonition dt { font-weight: bold; }
+
+p.admonition-title { margin: 0px 10px 5px 0px; font-weight: bold; }
+
+div.body p.centered { text-align: center; margin-top: 25px; }
+
+div.sidebar > :last-child, aside.sidebar > :last-child, nav.contents > :last-child, aside.topic > :last-child, div.topic > :last-child, div.admonition > :last-child { margin-bottom: 0px; }
+
+div.sidebar::after, aside.sidebar::after, nav.contents::after, aside.topic::after, div.topic::after, div.admonition::after, blockquote::after { display: block; content: ""; clear: both; }
+
+table.docutils { margin-top: 10px; margin-bottom: 10px; border: 0px; border-collapse: collapse; }
+
+table.align-center { margin-left: auto; margin-right: auto; }
+
+table.align-default { margin-left: auto; margin-right: auto; }
+
+table caption span.caption-number { font-style: italic; }
+
+table caption span.caption-text { }
+
+table.docutils td, table.docutils th { padding: 1px 8px 1px 5px; border-width: 0px 0px 1px; border-top-style: initial; border-top-color: initial; border-left-style: initial; border-left-color: initial; border-right-style: initial; border-right-color: initial; border-bottom-style: solid; border-bottom-color: rgb(170, 170, 170); }
+
+th { text-align: left; padding-right: 5px; }
+
+table.citation { border-left: 1px solid gray; margin-left: 1px; }
+
+table.citation td { border-bottom: none; }
+
+th > :first-child, td > :first-child { margin-top: 0px; }
+
+th > :last-child, td > :last-child { margin-bottom: 0px; }
+
+div.figure, figure { margin: 0.5em; padding: 0.5em; }
+
+div.figure p.caption, figcaption { padding: 0.3em; }
+
+div.figure p.caption span.caption-number, figcaption span.caption-number { font-style: italic; }
+
+div.figure p.caption span.caption-text, figcaption span.caption-text { }
+
+table.field-list td, table.field-list th { border: 0px !important; }
+
+.field-list ul { margin: 0px; padding-left: 1em; }
+
+.field-list p { margin: 0px; }
+
+.field-name { hyphens: manual; }
+
+table.hlist { margin: 1em 0px; }
+
+table.hlist td { vertical-align: top; }
+
+.sig { font-family: Consolas, Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace; }
+
+.sig-name, code.descname { background-color: transparent; font-weight: bold; }
+
+.sig-name { font-size: 1.1em; }
+
+code.descname { font-size: 1.2em; }
+
+.sig-prename, code.descclassname { background-color: transparent; }
+
+.optional { font-size: 1.3em; }
+
+.sig-paren { font-size: larger; }
+
+.sig-param.n { font-style: italic; }
+
+.sig-inline.c-texpr, .sig-inline.cpp-texpr { font-family: unset; }
+
+.sig.c .k, .sig.c .kt, .sig.cpp .k, .sig.cpp .kt { color: rgb(0, 51, 179); }
+
+.sig.c .m, .sig.cpp .m { color: rgb(23, 80, 235); }
+
+.sig.c .s, .sig.c .sc, .sig.cpp .s, .sig.cpp .sc { color: rgb(6, 125, 23); }
+
+ol.arabic { list-style: decimal; }
+
+ol.loweralpha { list-style: lower-alpha; }
+
+ol.upperalpha { list-style: upper-alpha; }
+
+ol.lowerroman { list-style: lower-roman; }
+
+ol.upperroman { list-style: upper-roman; }
+
+:not(li) > ol > li:first-child > :first-child, :not(li) > ul > li:first-child > :first-child { margin-top: 0px; }
+
+:not(li) > ol > li:last-child > :last-child, :not(li) > ul > li:last-child > :last-child { margin-bottom: 0px; }
+
+ol.simple ol p, ol.simple ul p, ul.simple ol p, ul.simple ul p { margin-top: 0px; }
+
+ol.simple > li:not(:first-child) > p, ul.simple > li:not(:first-child) > p { margin-top: 0px; }
+
+ol.simple p, ul.simple p { margin-bottom: 0px; }
+
+aside.footnote > span, div.citation > span { float: left; }
+
+aside.footnote > span:last-of-type, div.citation > span:last-of-type { padding-right: 0.5em; }
+
+aside.footnote > p { margin-left: 2em; }
+
+div.citation > p { margin-left: 4em; }
+
+aside.footnote > p:last-of-type, div.citation > p:last-of-type { margin-bottom: 0em; }
+
+aside.footnote > p:last-of-type::after, div.citation > p:last-of-type::after { content: ""; clear: both; }
+
+dl.field-list { display: grid; grid-template-columns: fit-content(30%) auto; }
+
+dl.field-list > dt { font-weight: bold; word-break: break-word; padding-left: 0.5em; padding-right: 5px; }
+
+dl.field-list > dd { padding-left: 0.5em; margin-top: 0em; margin-left: 0em; margin-bottom: 0em; }
+
+dl { margin-bottom: 15px; }
+
+dd > :first-child { margin-top: 0px; }
+
+dd ul, dd table { margin-bottom: 10px; }
+
+dd { margin-top: 3px; margin-bottom: 10px; margin-left: 30px; }
+
+.sig dd { margin-top: 0px; margin-bottom: 0px; }
+
+.sig dl { margin-top: 0px; margin-bottom: 0px; }
+
+dl > dd:last-child, dl > dd:last-child > :last-child { margin-bottom: 0px; }
+
+dt:target, span.highlighted { background-color: rgb(251, 229, 78); }
+
+rect.highlighted { fill: rgb(251, 229, 78); }
+
+dl.glossary dt { font-weight: bold; font-size: 1.1em; }
+
+.versionmodified { font-style: italic; }
+
+.system-message { background-color: rgb(255, 221, 170); padding: 5px; border: 3px solid red; }
+
+.footnote:target { background-color: rgb(255, 255, 170); }
+
+.line-block { display: block; margin-top: 1em; margin-bottom: 1em; }
+
+.line-block .line-block { margin-top: 0px; margin-bottom: 0px; margin-left: 1.5em; }
+
+.guilabel, .menuselection { font-family: sans-serif; }
+
+.accelerator { text-decoration: underline; }
+
+.classifier { font-style: oblique; }
+
+.classifier::before { font-style: normal; margin: 0px 0.5em; content: ":"; display: inline-block; }
+
+abbr, acronym { border-bottom: 1px dotted; cursor: help; }
+
+.translated { background-color: rgba(207, 255, 207, 0.2); }
+
+.untranslated { background-color: rgba(255, 207, 207, 0.2); }
+
+pre { overflow: auto hidden; }
+
+pre, div[class*="highlight-"] { clear: both; }
+
+span.pre { hyphens: none; white-space: nowrap; }
+
+div[class*="highlight-"] { margin: 1em 0px; }
+
+td.linenos pre { border: 0px; background-color: transparent; color: rgb(170, 170, 170); }
+
+table.highlighttable { display: block; }
+
+table.highlighttable tbody { display: block; }
+
+table.highlighttable tr { display: flex; }
+
+table.highlighttable td { margin: 0px; padding: 0px; }
+
+table.highlighttable td.linenos { padding-right: 0.5em; }
+
+table.highlighttable td.code { flex: 1 1 0%; overflow: hidden; }
+
+.highlight .hll { display: block; }
+
+div.highlight pre, table.highlighttable pre { margin: 0px; }
+
+div.code-block-caption + div { margin-top: 0px; }
+
+div.code-block-caption { margin-top: 1em; padding: 2px 5px; font-size: small; }
+
+div.code-block-caption code { background-color: transparent; }
+
+table.highlighttable td.linenos, span.linenos, div.highlight span.gp { user-select: none; }
+
+div.code-block-caption span.caption-number { padding: 0.1em 0.3em; font-style: italic; }
+
+div.code-block-caption span.caption-text { }
+
+div.literal-block-wrapper { margin: 1em 0px; }
+
+code.xref, a code { background-color: transparent; font-weight: bold; }
+
+h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { background-color: transparent; }
+
+.viewcode-link { float: right; }
+
+.viewcode-back { float: right; font-family: sans-serif; }
+
+div.viewcode-block:target { margin: -1px -10px; padding: 0px 10px; }
+
+img.math { vertical-align: middle; }
+
+div.body div.math p { text-align: center; }
+
+span.eqno { float: right; }
+
+span.eqno a.headerlink { position: absolute; z-index: 1; }
+
+div.math:hover a.headerlink { visibility: visible; }
+
+@media print {
+  div.document, div.documentwrapper, div.bodywrapper { width: 100%; margin: 0px !important; }
+  div.sphinxsidebar, div.related, div.footer, #top-link { display: none; }
+}
+------MultipartBoundary--mS6LKizeQ8IE5y3xAQoqRLsux71kipjNUs9WpsmKX0----
+Content-Type: image/webp
+Content-Transfer-Encoding: binary
+Content-Location: https://docs.celeryq.dev/en/v5.4.0/_static/celery_512.png
+
+RIFF  WEBPVP8L  /ÿÁ5Û€mÛøÿk—écDL€~QÇapœQrœ Ñ%gRŒšj>® +æ	–bhLÙ Úúş–šmÛ³'ûïÖÛ q‰ÎµAêû<w©÷£Y QŠyÍöÎ ¨::D1
+‹e"t•Q´áŸ8:M üVQÛFŠsïoÍBQÛHü½úo Æ¡
+ `È:Û¶‘ølû½öªmûm#ÙF¶mÛö7l$)’ûSúŸ{È¤hÛ®ZËü÷Ÿ-kmœw>ø³ÚÊÿH\TqeÜ¡»%¢7OÀiL!-ºC$1‰İêÿ„ûÜ"ŒàEÏEr‰ÄÜ*‚¶mÃŸ¡¿ô\Åû˜  CÒÙ¾¯vµİl%Û¶mÛ¶mÛ¶m›ã†$EªY|ˆaaæC9Ù¶=²âß[Îyfwg6Mú') 3ïû®JÚ-‰&P€ PÑÑ%¨Ø!thÀ]Ô•P	h@À”k øø%7¤ŠAÛHø3¼»ÿím–I’=ÿl¯­»İ¹':$É´î³÷mÛ¶1/İ0’ä(=ï#†s»sY-ùcÿÙöŸıgÿÙöŸıgÿÙöŸıgÿÙöŸıgÿÙöß²LBJ
+‘&*D·˜‡âA<ŠO€Ë¿Ş?í|´#£…4uâÊg‹N¥¹Y¡Lø¹EO øş~á6 òÀÈe]Á-´Eˆh{â'`×,¤u56Rqi%r§^¸Ø…	ş`‚€¨NP„¼â=p—w*½oxu\¹j…²´‹T§]%äD¬Xÿ¼º¯3Ògšwh×€›5"x…t@Jta^,^yÿüKBJä…5(XA&¢³} ¯àŸÒÄÅ¬B9ZÃ‚Õ:Ì
+ÅìG:¯36r©O†äT†`â$—w+}Z¹rÛzÿÔ@‚2‘Fˆˆñ‡¾åßÚHŸ(‘ïÔ9&ÔÄh`ÿÚ‘Ñ_µğ1¬¶²	¨Ğëğ[±ó¨ÂĞúÿ5wè«X`ßê¼VäLøİJ$$Ä,ûÖı±ÕB‡vÒŠÊÀ^>•ó…±èË£+‚ÅG@OğO\F¤nŠbş³bcŒJ„»E"/°WH›#…Êâ2 g–„dt‚‰`'Ò{ÿ¬˜—ñ±ñ.”àì['‘õcÔçHÂV|±÷îm¹öì\’üğrQØ+üg%2#åRÁ&áûH­±r7Š÷=ş©$©¯:A„¾øfïÛpå1/cî1Š€À^İ¯WtbÔ
+y]¡(„ïÁ7yd¦}(QßÃQ!³S(?î/Úà{H«j‘s·½ığ½O›ÀØ¹´Ôo¿w[× ?ûà™ñó¹qGô_í÷ìjõÛè¿kï}0ş¶õøÊyÙ…¡Ôîh`€¿À0ïà‚wv‡O§°ç(KÃN!ıé_ë{.]ä®Ğï`9ıuŞÙE£ÿ¾£¹ğ½÷*M ş¾Ã-ğ}VLÒĞ®ü¾ãšçá“†b![w ÿ&ø>S£»hİ‘ğ½ûzó¦¬;t¾Ÿ¸öD®[Ú¢†ğ)*Mªîàcú«L•2uG7ødå?ğÒXwøù
+øùÄPÕ”]wü|OÔÖ í¹{ÎÂ'v†´AèsG³zºöZ—	[;ÓØ„VÈğ Se0•Ñ¨ğ»ùÆíPı´„!È;À&T¨zÙÍ·£;£î¡¼NUJl…Ğ¯“‰H8à›VP6»`Ñ~‡Ï®îHÚAÑûÊ‹­Xø¾@tŠ«Ü§Š•¹àÑş€ÏÊ
+`Ujlåá“v€&A_É‰ö|¶uehà–İÚ2¢_Ë@³ ®Ö¸ÏWè
+oå·Y	Ñ¯Ã’À2‚_	$­~ø,q«Ü
+Ü€•B[úBæö/|üİá ¥À^şôûI{H`%!©Sø¬ëL/uX
+6€O/ p
+âÒ`ª€~ßáƒ@["âuŸMY [»J›]yWëCf©0UDŸĞñPF¼/à³!Øg@“i³‹Pğÿ‡p)¦]é÷£ñP<-iÍÀg™ZSp!à³k;aB­múı^r `á SAnö›Óv	Ik>KÔ¨öjdZJâõ Ÿ-]¡&ŒV’]¨‚?€ï†½•Ø’ÏÃgP
+ˆ‘7•HŸx'%­1ø,Rc
+jÊRş¦Ó¶–Üÿ>ûvÂŒ+qKŠ)L>  @³Vß^Rôé§á™ÓNô‰Ú -¦réãæ… vJËúLåKõÉ^Ï2w$‰‰÷1|ÖdÅDû>›º€ l1Ñz‡Ïí •%&·à³ïH¬PjÆÂç00®&Ï eiÉwÁ‹¥¥‡ ¹IE |MÜ àkâ}0øæ^×ÌB¥šZğß -ùWÓÛ½‚L¸«¦'|nO€z'ÑM?¸4ıf‡¾9|Ærƒ	Ğîä5ı›Æ'@»³¾Zıv§7è	&ÿš!åbfÜÑRHŸÄı~gõÛÃç¶~¿S/öà3àƒ~¿s_L?¼Ô	0î„Ï“Öäİà+ïHÜ©Sô%ñMkÅ¥.hÚŞ‡R€O@ıqg}mú&OõÇò¾>›|ÁE“œ,ÆäÇ•šÏô³K0 \I/úa·úóNmğõ_Ş¹!ƒá327ïäÒşÖÓ÷ïß_]G[úİWúóNjŸÈ)ıyçıUø|Õ;Áúİı¸3ÍÙºv2ÃŸ¬w_F¿ë:Ğßê‹‡‹7»[£ªÃD ıÅ
+ù¸Ó|á1ø‡ wo@?Õı¸}÷ _YúqgúÕô“LÔ;Õ¥_İÔ;w‚X‡Ï€vúq'û'ğ9º+w¶ßvšşúSš¸Ó]nš(îü*W-¤©~Ş	¾%ı*+‹.ïÄVñ©şÂ^¯[Ò¼S€ºù$Nv‰ÔÉ³W‚~Ş9ŞTı[È‹-äóNò¥/rîÿßì¢Ÿw–·å„?‘¼Ó*MÉŞ ‡€~Şy>+ÆÜşs±0ÔŒËw2[¾ğ¹O “wf¥(­eø¶*£rù¼S}Vôh}:T(
+¬¾“e—Ödø6,E&ïäJ‘©rú»IdòÎ®%k—~:åù¼Ó}©Cíà:9ˆ	øN–]’ôÃQ	‚‘ñ RdË>Üxªâ;C%ÉTıD”ÒD|§p™€äV¤—ÏGŞw¿-­ú©–(ä}'ñ%ô“Qú¢`@ÀÄÃ•šF¼¯àÛ–n4|§iLéC×=ı ä¶ÿ¾5ÙÅà¼ÖÏ7§ôE¡?¹m»y³pÆ02h%ı'°ÏC’´6áÛ¦Ì
+dfò¾“¥5@%j6	¹ïd11•I3JÜ÷!(¶ìáÿ
+¹È­cjßé¢2ş:/–øcaÉ.zR{ô““¹Êë;a`:Nfo«ÜûDû¿cdlé=ƒŸŸH7(Vß)CÓ~ˆê[²pøPúÎşÓ4¿ı˜ÑwÒğds²·àîè†î!¥|GÉğ—#ÉÑùN›‘R%íø@n%íqùÎ›[bIÓÏTè“ïÄi±eíWö¶D­n,­vRK›ÖûÆ
+÷îÍI|§NMZpSÉ«Ø7Vd¦P-`ğ;;LGFû~£Ú‘Ğ­Rˆ-ÓxŸÀÿê9òë;»Hî¦5˜[¿ì©z<j£úN/[è7ñ>ƒ¿?±ãX>ïå;¿T²‹-İ%ñºƒÿUT,-ğ½ëNÀ'[<¦JFÕA?°©« ØÏá½7¼îœ²E2å1’ı?×sùĞïˆÚ^*À«¹u§ –-Ö7»£ıP‡ü_W´.#Ïï÷¸ô¾@>5±îô*±¥`*q÷¨äW'lë®ãT+‡wUí»˜u'‘ÑŠ?¦Lå^yïãhßGë=· ¯Y¿³Écìëñì:R,£ÒÓ´ı8ŸwZ"¯&åa’×“³şï,KşØöŸıgÿÙöŸıgÿÙöŸıgÿÙöŸıgÿÙöŸı·LÂ
+------MultipartBoundary--mS6LKizeQ8IE5y3xAQoqRLsux71kipjNUs9WpsmKX0----
+Content-Type: image/png
+Content-Transfer-Encoding: binary
+Content-Location: https://opencollective.com/celery/donate/button@2x.png?color=blue
+
+‰PNG
+
+   IHDR  T   `   Ûìì»  .nIDATxÚíé·İÄ•èOVVú[Â‡ÎĞùÀ3Øày'ÆĞI '+y—fHÓM$N«_ éĞ¾×¾öGãÙÄv<Ï¶O÷ÌÓêÕÖ‘¶J%UéHçúsw­µWéH¥Rıjï*m•Jub±QØÉ¾¼rsqÂŠ¾Âê‡6^â²–Ë®‡ú
+GVlÊ_X±©pcEo¾°¢/Ï–÷æYÑgÇ%É£X-¥s}òëE±™¶k	.“»|îëÛû**/ñ?ñ?ñğóû{ay_îÆòŞüã^ß›ÛeŞû__ |ğbüÃ£»ÙWVöåòŠü¯ÈƒÜa,ŠhpêôNÁû–›FbÅ:£¼Şñ?ñ?ñÿâïËsß ğ¡MÅ_ñãÉÁ2ÃÊ>vÇŠŠkx%o[Ñ›ZÁ®ã(^n¥óQ¸#Nú€¶|ÄOüÄOüÄOüÄïÃ¿©0À··®ØT|fÆ”ÅûÂC½ùËûr¼rË|²ÅË„}z’Gq^ØEú`”‡ø‰Ÿø‰Ÿø‰ŸøõøÁ§XÑ—[ûğùùàkÔïhc_„w \AÇ¼+È©Ğeæ¶Wz±Â—õ ¸GØ'Ez×õzìXŞ.³¬ü¢?ñ?ñ?ñ×;?œ÷Ô®<ûùÁûó™"Ûti€¿5Ä.&‡ØçÙ!–,³âPI`ûóì°qÒ@Z8çßù¹Ç
+M~~í£Ëz€ïQ_TOîIx¶›ÕW°(¢„4 l$:Ô Ë¬ãmâ'~â'~â'ş:æzgışd‘íş|¥ŠÃ,ª yA¿?QdOsK]ŞüÙå}¹'jŞ±zøƒ©Ë{ò‡,°¥=vŒ·+7Xÿã¯'ˆë|HyˆŸø‰Ÿø‰Ÿøk„ÿ{;òìısìJfˆT€kÁ5áÚşüùƒË7ÜSsÔ#[ØW—õŞZÚ›¶`d"*x©é½C\’ŠsÂ>÷qw~Î
+Uï–°×óâ'~â'~â'şZæ‡Wp¯)°ı#çDy(”e…?÷Iø¾7—ob[ÎÔò¾ÂRî%Ş4 ,˜^k;kÇZ
+*A¦Ê×#~â'~â'~â¯Cş‡z³ì7Ç‹#:dÔ
+ÊeôpfaË%£Ö‘úî>ö¥%=Ù× °<6ÄÚ¶ ğ>ãKºQÜmëÖÏO”À×$êü‰Ÿø‰Ÿø‰ŸøkFnä†ÙhPF(«ÿÒ¾ì«à»Œ®‰ç=¹¯-éÍîm@
+^‚â%¦q•c™Á¡}ãÔ.OÅ9aŸNy‰Ÿø‰Ÿø‰Ÿøëƒ¾²;vkÕZ€2?µ+'å_Ö“Û³lKîïF…3µbSq/äõ²Òü—Åæ6Ä‹MĞÅXôĞ£X'½h@.R]>{Ÿô|â'~â'~â'ş:ã‡¯›Î°Á¡aV«ÊŞt¾h|É(á¿¶¤·8ñ¶:SËzó,éÍ§½"*L4Q\+ˆÊ ñ> *²|
+ƒ$~â'~â'~â¯eş5ÛrìL|ˆÕK –5[s5—ZÒ“Ÿ{[œ©¥İ¹Õ¼ ÅÅRe@¢ÁÎÅ•4˜‘â'~â'~â'şÑÊÿoò‘®!5Z0›D'Eî”®qgjqOnxä0‡âœ°/¼,ê²c¼=z!ñ?ñ?ñõùÿûL‘Õ{ FwnxÄœªÅğšÏ™°¨ÅİÂ>‰ˆ4?åù¢ˆù	²Å:Œø‰Ÿø‰Ÿø‰¿øaT«íâ +Xú/TUùõßâMÅI‹zré¨Ti€Šüueìoë–ÅZù,ñ?ñ?ñ­ğÃäóíŸgÊ
+Û¯°eİÎú\sªz3Õ™¨Î3ÿ¯üëN…:`¡QRŒ·u«Ìu~w¶ë<ˆ²Å…}zMüÄOüÄOüÄ_ûü‹»Æ¦3Uvª8»dDïZäK*¬<Îş†g¼×R¤·ÁÚmÇ:²°¼-7ğ åÎ?Xùe
+~>ñ?ñ?ñ-ğ·^»Î~ı'êŸ×éHÿäşz¡ÃĞôN4wzÕñ°ù©Ê«J¯â'~â'~â'şÚæ{L@×P’ú{5¢W}™eV¦:3åoë*pŠ˜Ç„j BşvŒ·½ÎwóMOüÄOüÄOüÄ_»ü?İŸ1gV³:Õ?ÈÏØ+³ìéi¶ª7É–t$Ùœ–{ 5ÁVö$Ùš-)ö£]öËYÖ~±È>Nì:X?ãuâª¯îÌÒpÎÔöU®ğ›^ 2° Ç•b¥5Ê‘uîÓ0ğÀåéB1ñ?ñ?ññ?¾%[õu¦yö;¯°÷òk¶'ØŒñŠdig’ı„ç±çóVí•± NßšuèQwöøD;T<³?.ğS¸`p}:ÇŒòxHƒœ?ñ?ñ?ñò/æe9]ÅĞ<ëwÎäÑ§J(/Q-È»¿P=×êtÿ ñ$®Ã…İ™·*r¦öd§ÎïÊC&óMY€b™‚æ›Û^éñ¾(‹‚Ë 38åùËCüÄOüÄOüÄ_‹ü«öZ¯ãb‘=Ü½#%Êü¶{ÿlÁ«FXÇëÈ¡îoì«>Æ¾È=éÃ*ªÄevlH'Š+0 À×Ù ˆŸø‰Ÿø‰Ÿøkÿ{Û³Uù£cx÷­RUw¤Dy¬/e\»¨uåt\3‡ÀGÒÕ×‘[Šg*~µİiÇRÁF"1œ‡4?á|Õõ•ù	õõ‰Ÿø‰Ÿø‰ŸøkÿèÍÁÈ?œÈ¸#…¥é£BUF© ®Äú]Ø•{R{tj~WöÜ<K	>9¯ÅéC|Àôó:Òå¸$KÒ£˜ø‰Ÿø‰Ÿø‰¿Şø_9íW}Yî›½°;S—Î”şƒ×™£¾;³gµF©æwæµÄPVŞ';.¬(AŞ-8NzA„˜ø‰Ÿø‰Ÿø‰¿Fùq¹‹n"ú•Ì0{|sª®)Pgğw4Xÿ:r«})~ŞxÂc
+s$Š5?hæ±Lp­ ”OÌÒ>èh Byƒ,ñ?ñ?ñò¿~´©3µ¬3Y÷Î” îúà¾øLÕ¼®ü‚’BJ2ÅRƒhGq»°O*Ëò·cgZ¹Á¹Hq\,¯q¬=íy}â'~â'~â'şzàŸÏËöYf(²×|cad
+¨»‚şçuex;Té†M#“ˆÓ D…»«Du~Øã‚´§™“í“'~â'~â'~â¯}ş_ÌEæ\„3µ¨#Á~¾?Ëz>)²ƒ×Ù§é!ÃIƒµ«næ‡ÙÙøëú¸È^;œc+%Ë/Œ´3e¨C\ÿó:²òÉè}ì;³9l`˜ÛãmÏã(~PØ'e~vŒ·uÏw_Ï™Ÿû	ÃÙÀˆŸø‰Ÿø‰Ÿøëÿø­ÁÛş5ß¿ìÉTĞu£İ4VIŸİœ¸mÎ”UG}sŸ	|'ÉdôÌwD…©Dm
+…w ¸CØWÁõTéUOÄOüÄOüÄOüõÆÿí-ÙÈÖ™ªÄ‘zj{ÚpFÂ†x…+£·N°—2‘ÔÁ·6g„úÍ­q9T\‘Û\J±”±Lp™‹â¹Â>éõæ¹?ñ?ñ?ñ×8ÿÛ§ÃêÀì« ‹vÂˆÒúÛ8¢d9SİÇ?c‡¯²Ö2}ûLQĞUz›0:Å¾ò`{fPT¸J\P”¦LŸ)Ç%I£Ø^U~â'~â'~â'şzãb2:üLĞyRû®Œ
+gÊ’§â‘LNÇu¾øPht*³(
+SJŠÛ„}Q¤Ù`ˆŸø‰Ÿø‰Ÿøë‰ÿ;[Ã¿ê‚ÉâAş›œ©SC£Ê™i;z…]Ë†õuê¨kîC•ª9íéWç´¥eY±LÆ13ÆÛU3¨€â*_Pâ'~â'~â'ş:âÿ¿GÃ¯ŒşÎ™| ×|£md
+Ë†F©ş“×)®ó:Ò¯Ú#Tí™CÕ00õq;Óf¥³Ó;÷9Ï©ÄÀÅë)ó#~â'~â'~â¯aşWÂ97ğEŞ’ıÑ©Ñ2gÊKÖ¹ÊÂN¥‚:êü áL-ÙÉ¾<§=3l(ÍRn»µ²c©8®ƒQ‰Û Dƒy=â'~â'~â'ş:á0Yí<ùšo4;S–„ıâêt.Ö÷¡À—ŠÍíÈLôRğıæ6Äx»rƒñ?®ºû¸ëhĞó‰Ÿø‰Ÿø‰Ÿøk•ÿ‰-áçO½¸WÏ(–F¨øÿö²ƒ¬SÃ™y÷ğõĞ×ƒºu8¼Ü—Šİß–~T×Cz+Š[Íc­>Ò8ÎÕ4 ûËÛiCæ ¸2ƒT5â'~â'~â'şÚäÿ×½áÖŸ‚iåÛÚ‹vŞî ’CÕ|ô³Ğ×‚ºÅú -÷hln[êe/q‰e^
+UŒ+!?Ç>Sz?)²ÓıƒR‰oçŠìrì[¤İ×Ğ•¿™~U_ÚXR~İ¹;p}€×}ãXıpW&0?.óvd”üVZXj_ä÷«k»å‚}½×ä´ø»}êÕKxıxñ÷~,¿Ç7§µôïÅ_QùÏ¤úõóÌ‡Yö»ãy¶‰3}”(Ùœûsng÷¤GÄşWõr›< Øä§–Mf}íYÔÿ×{3å:hú¨¨,ß³É–ÓÿÇ¡œ¯ıÿ`gÖ³¾OŞdÛ.°µ¼îş÷¾,›SAû×±û†–bÏñ²ÃJÎ›/ƒî†Ø‡WØŸOØ{rlaGJKÿøšN[*ÙÂ¹’-¬ìÍÒ?ôVİÀDáJø=óğÑ¿˜?ÎCG`ejİş^ƒ8u0ˆte;ıõYq»–Õ7²M£®<ÚKçÇö5ŸÚ‘Ñ²¿?*”Ïù'n#2ıÿ`gõÂşeúÿı‰pÒOòréNÁ
+è·;ì¿šÓr¨@ÎÜ*†\1¾à°ğ¥bsZÓÚ
+
+èp¹óŞœÔ\.xxØp,uÚùÏ6ó€x¶™çl”?¼†Î2§X:ÑÇ>HkóƒZáóì[ŞåÍŠÀËÚûÖ§£“,±ü=/×Ğ°]şküzğ¹¬ŠÿDC°ã³Oş“óûşölğ(â¯´ü³}òbsF9d.s§5_rª`ÿ¼Q–lr@m“nJ—í ëZ´ÿGúlû¿¹©ÊóÓ}ö~ıñdŞ·ıÿx·şğyîüÈr+q $öoÅOnÉ(mğjfÈpuôQ‘-(ôûã=v½®=W¨ˆß‘‡ñ€ Ö¿ØşƒèÂî«Zıÿš­z:xnwÎSÿ•´ëíV»øŸGœkM§KÖş_;l;à\©îóÚSåyI	Ão™¾*ªç
+íßKÿ]Ÿ„s¹ê.“08ÌFEh:rEË¡ê<—u.l+­Æ|»†ªû0hƒ¼_Ø­)ªüe‚èáƒÆÓº%’ƒlpÈ©Åë¹!ãÉ@~};~„ßŒÎÅò:ÇŸ¨ösO[\â>Ï­åÕÃ9-~±S'4/~Ñ¡š >A6œwQ7D3w>¡¢ú¼œ¶×¹˜2Ûuş6*óâ÷Ó“%V^Ãòı:ú÷’æóEWş¸üÌòcÕ‚g£×	81‚-õç‡¹ã2h<e‹vÿ‹õPw:Rû‡‘RO›äT<ïm“~âr¨òO÷c‡ªàÛşñMn–¸¾Á.qàzÍrGt¯ÛşuÂEİAY€úˆáaç±ö‹E_şßñ'O¹-øÚ‚ªœ¢CU	¿è$ÌdV9Î²CÒö‰·ß=SPöÿ•è@Æ_I»şó©‚V]aãmxÏš0/ìô¿ÿáuç
+Zº‚ºğª_‹Ãªç(Ú`˜ğÊÁ¬–Ct<ZÂûGoj9Tï¹ê:P·ş¿-µæPÑWPÅia_uß¨çw¸?ÈŸş™î´,ŒÒ,î@³l£mx¢<‚-ÅŸ4áÕä…óşöæ´aèöç£ÃÆ°Š_ö”¯j¤—JªÅ¨#8ÊÏµ:4xÊ+sKø½ò{ÿl.şUz	q•_“F-p‡ÿW#¢ıúH¾\ßÖeTöŞ&%ùš¬lÊ8*UYğã­“y_ı?¿;§¼Áƒ³Ññq1ÔƒƒÎMÂæKE¶²Ç©ëÅ]iöŞş
+æ#´ŸêoiÓÒ¶P=g¨¢<<ì¿òrÈÛ¿¯P_õ›£z:Ş/yÔ•Äõêÿ°}Â?ş¿^³Ûé7?ÈTUß¡„³Â@˜ğô´–CÕr$,ÊĞıQRË¡zïğµP×ºÅı?øR±Y-Éº
+š…bCZ’vŒ·ËÇQÜbÛ¢oV¼Qãóqóùgïçöæ›x•÷¨^J¹¿(ÿş	–ŒrøğË*pv¾¿=ãâ÷s¨0Ÿ¬ş~{Ìæ€W)\²n²*}Í6·u;.¿ü0ó¼èôïÇ/Ë¯Ã¿´3Énälgü·Çó¾ö£=à°[á5~cˆÂşqÙaTlÒÛ$¤Ÿß.©4ò…*/ı«*Y}â›Æûü¦áÅ?›ËQó8óÚÃëiWŠİDºTÆo•çÉ-iã¦ÿ2ŸŸ-ˆù­êMÉmÁCÿAo°2şçÿâ¬oßöáaÿÏÿ%ãÊ£Òşi·S¯ÌùÚ?¼šıãÉ| öûëŸ¡Ñw•}xÚ¦DÿĞ7[áĞõAO~hKÖİ÷»ÿyéªZıŸLÿWBşåÌªŞdÍÌŸ*ßG¯´ªµ‡¯†ºÔ­Sÿé1ŞÑİ°dYIR(‰†àF(oÎçÊ_åP	ù=Ôã\sãñ-g™ø¹0)ÒÉ’Šnxô ¸7.3ÌëÂ
+XÒå,ÏlÁ¡ù½nÈ0÷s³3‡×sîì°;˜ê*›âïì¸²ô/s¨¢Ğÿ¬ 7Œ?H*ÿûg
+®Ñ•ı?ƒ:J¥ ]„±˜,-Ú¤ŠÿşV}›t;T^tÉş_ş«Í÷äë£×MË‡ÿ§lı|Ï|¸£¸QöIªüÎä%õäoÿ~¶ ò»oğÁù¥7i]iñ¾ÑWÚÿûé ªöïéP‰ùµ*lS¡ÿ³æëv¡\İ—’òƒ3h…—÷å|ë[t «İÿÉ$r*İ=?M‡êjfPË¡‚¹VaÔ­`ï7¸C•.x+T5%Ğ±Oİ@gšùA<ÓLç¸Q·ùIFp§ı‹%§ ç÷;m§£F±ZüÚ¾Æ÷Ñ‚e°Ğ™?.ó¢çDËŸ×gÍáP	ü3=êó%tÓ{íH®\öÓæ„x˜ç±²'åâwæç—C@ÿN=E§ÿ™~ö$”Gìxq^ü‡SèÚ?ıÎ–t(û‡¯ö°Mêòã§jÃ&…Ø:÷½)Ç|>/ı[ç¾,ŒPùé_:
+àQŞ·~\NcúÇóC¾Ñ—öä×µ·-èÙ¿Ûäå™Jø]yøŒˆyñ»ó¨¼ÿwè 7yÿ±Ø®uG„ŸFâTú‡~Ô
+0ßRÆoøÀœº¹­ş÷¿ç%×¯fÿ'Óq(œC5§EoÉ„ìè b9^‡ªıX¸¥ n#Ü—ŠÍnµ*U4Å3[,#Ğ÷¸ñ93…<½®ïùPà³Èˆ›Î\OT0ŒoøBG·ËÓYÆ	¯üøEç^Áœ+ü'¿.æG¨<º†å¤Á—FàhZéşı€ÇS™Æ;î¸~º/Hÿ˜&ïÂMF”=füøæŒ¶şgè€\¯bDœYkLøbÿğÙ´~u(Êşñ«Û×ÛĞãŸÓštØ¤Wz×•âŒõ7Ñ•LÿÏy9	’òîGÿïµ¼;Jÿğdnéî¦ÑÕõågÿN[
+Ôÿı—h×NâÈå—9eºö"9AlŸ{Ğö{g¼õïĞA~¨*ı¿g»Öp@üFOeö¿°#Yşº&‘ÏòÃ>ï)(ïb=Ëê×Ša¤<lÿ'K?bÕ@í9Tm8TXÿ†CÅ+ş†¥™eeÊ&±A8Ï‘‰3?Uzwæùx°]?<%á»˜¾MûŸ;3Byüùá+À$K/w™SìE´À(â»[Ó&kÒáP‰ü³$ùãÑ2øß$ÌŸİÃ¼ştÖ™¿>œU.şƒ,›Pªw=ıÏ
+`_¢C¨J¿ªÏvfa>DûÿÉ_í§Ù¦
+¡ì_´É üğ•m“òüÅ*ïò”¶_Blo¢W‰2ı‹N‚Œlòm4çëĞĞú÷×]ğşH–Ÿ®ıÿ9 N[p^O1©„_G°şëLÊó„$üî:‹¾ÿŸåÛ®ıów×•ª<¥5©¬ ëKaıÃ¼\û•`ZÉ¸Cö²òĞ+¿ê¾ò›ép€“7b|ã‚—Bf Øf7—ÒZ±_=³%%•æ±åkÙû,‘9'~ù?…æµ],”Ëh•ıO'ó¯9føä!Î˜O/Éâ°/¿¼ÌÎ%`rû‚¤k„j†O}Yùo¹l7ìÇ6¹Ó½{ÆùÄŒùË±¤¾Å+ˆş1óùDi©/ùîÖŒ¶şeüzUÎQFÿôO¤Aìÿ4ªÿ<Æşÿ$¼¦ÖåŸ…FU`Ô•¿ÉÿäPÁÿryÖwi[¡òÓÿ³Úí–|€ÏáÛy»uZàé»-÷ sÅ`aÉ°úÇ£s0—PZ¿
+ıãëÉlA×şñ¨wÉ¼*§óY	¿ÜMâÇ£øıüáË¯­Â×o^ü¸ÎJ:ˆ¾ÿ—µkİü±mÂˆ’ªÿƒ¼şa{ÆõúÒÀèUŞüBñ¯Ü¦uîXW0®ªç°ıŸLÿ4)½º“Òı_ˆÍhI©Ôà]VÑàÄôªã NçD•_’ıúpÎñÕ6¸ÂüXód†fƒ‡O§#_Şü¸Ì´ÙùÃMàZghëeO³8Bå_Ÿ_ç7ÇAó+“OSCÆêÃ°lˆµı:šğqrP[Ÿ.‡$€şEæ¨ôÄÜO²)—şE¼ë²®´¶ıoÆ_TòN8Œı»lR“ÿï7¹Gc­v€;\øĞZ
+à¸é´ûİÀ~:4rıy
+‡Eáï¢Òÿ)‡îRüºöJ°]û÷²±¼â¾~¯<,n~ìP½w¶ÀÂôÿ¢¢îÿA~Vø`Â¯ÿÇü•:°ÖRà@Á#æUt_·:úr]¿ÊıŸLÿ´lBu—Mpê+u$Æ7vy)p†•Ø0¼”sŸÆˆ‡Ê@tÎwÜ¨ÛıËËd@ÿ°-íº&4z+Àü#pPtøñk™wÏä}Ë/s-¯G2h>v Å*÷fÊøZ$hxæÃŒ7£OÇDÿ"sTúùıÊã*¿s35„Eútìëiœ[…cÿËº6	¯­uø»?–Ø¤‡XOªistÕO6|Tp:>úÇ7xXcFoS¦À+gkêë¡îT¤úo½`—sãù‚–¾Ù‚†ıËlÁ«üAGLdüî<R9]y„èÿ:(FŞÿC,í—då©”SÜ'—(ì/˜«8»E¯üÊëGÜÿÉäğp“›haOï u‹õ7«%µF¨,İg*âûL…ÜçÓÀ\é[ìoÛÇísd¯iÉ	aä—GL_uÁ¤Wşí,’“+ıø_@+ÃbeoÚ—ßéºùñWT´^?¬Ó#òc™Çùñävİ°Ç¢ëKÔ‡Ì!ÑÕÿ	9*ıcË#¦Çÿ[õ²ùÊÏ/8öº!Â(Îÿú0ëkÿ÷Î#ü5Cö/Úä¬~Ñ&îIùæ“Ñ­ğoû³ÒòÀ6¬İŸ·_À«?ı?‹Âa´Cäy_ÖUWQéF±î ,~ùƒ³óÃO}¸laWÆ×şg{Ø‚—şÅºª„_v“Ú¾¤NY…ıÿ7EÀÃ›ı:Ø•¤¯%U&rªÒ[ÛÚí×{Ğ¯}½xûT^ûş'«çjö²üñ‚¥•úëï }¶Cÿ­©˜”ş²®Â+8‚üœ¯’LƒiNbm/á7­—mÃÉ˜#O^ùÃWqŸ¡It°Ô ¬@-^:Ì?Ÿrş¥¼JRñaçbn›œæw¹Şır‡Ê¯¾à0Ü@ab;ÌG*Ån9—°×U'i¥C"t\AôuR`®=ÉõïW~ü_CO¤0¢Ÿ÷Ïnq_†ÄCè0WFE£°ÿ6i±–l²ài“^‚_óÀ«7ì,Xi aÇŠuƒ7ckew°CñŠRÿ°ú¶`„Fê@'bŞÀ£t>g÷Ò—ÌdÎ­Ÿ-xñÈnğAùİõRê^Ìß«•¶×ßÍIu æ‡u Æuùİ•¼ı»lŞÃ6uÚkrDö˜ËbÀ‚+{RÚõ¥rè¢îÿd‚¿ ®$ĞŸ#{¨[áãåØÌ–ô£^Ê˜¾1Qñ¶nB°sÒp6o¼‹†OyA`â+¼ÃÇ£<Ğ	Ên¦†l´ãïoË¯?ğdY!‚¯æ`.8h×³Î	}0áV‡ÿ„Ä¹:ñıöQÓ¡òjl—Ì.<=-hWëãÿ´;º–¿cÛÃ!	¢ÿÂ“:èÉO¬zQ•GåPùño¹äl\°6ì[ ›8zsÀáÄ€Sòwx¢´uX›ÉÏ&¡<n›,hçß+Ìs€yWğ¹6ÔÌÀ_Áöâ¤Rÿ*'á>s$Éª;°a¯6Q‰şïãñ‡W¯5 q'¾¸ƒ?ÄÆ+y[kÁÉìßµ-Vd¸®Àa†×Š2yÃì¨eüî<òúylt—Ú­W…>bpüÚ?ôMé@Sï²~Iç~ä²MEÿ‡¦‹ˆƒÜÿtëÙ®ïB¨şO&ÿ¼;Ü«8ĞÚÂv½¥şeOæ¶;Tï¾®åL5ı,ôµ nq]ƒ/ÅªÌÄJo A\‰Aù÷qøô†í§oLRÊ]Å +ºSlûgj/Ş›ÃDD]/‡JL7šÜÀ°–C…†×M3ƒÀµ­•ãá::œü¸N´ş ÿÿÖ‰\äúïPù_2Ëï§‘^…é|f_ÿÀhN5ìlrG…6)ê_äŸßî\¢Á+\L7ı‹7-/ş÷Ğëøõç
+‘? Á\—Œâu8‡¿FñÒÿ}Ú8:<Ï|¨wÃWtnÒ¾yôzÚ¿n9pĞ±g}dé_·_íße›Šö/Êyá÷yaTMÕŸ¨õïÇîöÿX_:´ãğâŞŒö(Õ±›·o”êFvujNã6<Ö—rè|©Ø’öåé-©áé–"BJ	+¿aL·¶-#Æût+nÔ0×²aä
+¼cg™‹âú?æÎJ›9Úe½;‡O§áÆŸÏoÆË<§ÕŸOæƒQ‘ß’ƒèq­§aW}Køñ_«¼q,ç[ÿ¢CDÿ•8T:úÇ"^_äw•_SÿöñÒ"XZc×•òÿ´Mç|0Ê÷£]é±ÿóÎ»í‚·MÂ<ıËøŸÚfÛ/Ù'©¡òHË-Ş–ÀÆşß±<›Õ¬ßşñMF2¼øaş£õWIğê¾ŠZÿ0éıÓys©ûZğ5,Œ <ÜTê÷‹:’¦-¶p¢l™@ú&€3äÅ(ıWâPéö0—ÏSÜ>àxş¿Ô®s¨]g¼ë[°ÿg¶YĞjÿXÿxrº±”FÀû_EõÂşeíFà’!×¢‚aĞu¨Úf·3´Nh9T;/…Mƒ:u¼¾å>øR1÷5§Ê*Qœ¬ºòSE™^(Ğ@¦™ÛO3ÓNS”>7…Éßc•¬ë_,ŒêÌ¸Íü†M¶W‡–9rUú‡	õPwQÙÿ|ãÕµÿ üğ€2³™ú¿ÛÉ¿ír¸¹Bğ<§»À'Èú
+£Ú©Zä*;H±À‡ŠYWú«2ƒÃût»%‰bëœddù-¯(A¯OüÄOüÄOüÄ_KüøC‹JÃ;°,‹¦C5»9a¼9­NÕ†SñĞùC:tÀ}¨²C5­5¹ÈÛ(ühÇrƒqwYxÓ‹ù«Ê«.ñ?ñ?ñíòsSø×p…!f¼2×uª`…SC£Î©j;z…]‹àŸœá«y‡~[3‹ÊÕüNö•éSƒn…
+Û°c.÷¢ØØŞhÇxÛë¸Ê Üç'Ë1Şö:4?â'~â'~â'şzã¿Áíë.i:T–S5ÚFª6F0:u‰õ?mCr|¨Ó›SÛD‰¢6Q¡¢¨&XşnƒÖ)Aó#~â'~â'~â¯uş·NæC;à’}ëƒT §
+^ÿ–9U‡¯²…ºtê'¹-&†éÍÉ5^†TKyãmÕyù¡x£°OëüˆËCüÄOüÄOüÄ_gü+{’‘8'Æ¿np¨ğ×Q,©¯ğ‹EpªÂ~ÙgXÜ×7øN.‡jN»ƒ{Z9H4Õ”{Q<ˆ¯©sı éUå	œñ?ñ?ñğ¹ÍQ°Àm%N•µø'¬¨ôojÀûÉŞŒ1âÕtG¼ÜpZrŸ	|§˜,pï¸aj…*¥)nÇxÛãzªüƒ¦*ÄOüÄOüÄOüõÀkóE^Ø©Ø©²æWÁŒğà`}šb0W&¿ßÌ³³ñ!ãïàkº•’Éğ·Ë©‚:Äõ=ûL1¯posbÓ PÜd‚·A1¼/
+ØÁ q=â'~â'~â'ş:àŸÆó¾”æË;p~ßœ
+åT…•‘vª î¦	úŸÉÓ¡âç|áŞÉcº
+¿§Ée‚Ó”¶ãåo{çG±:½x½ĞLüÄOüÄOüÄ_'ü¿8İ(Õ•Ì0[Ö™3NÔÃ^š’ÇÀgŠù…iÍ‰ÕºáTº,½¿Á©Ğß`T(–Ï-şé‰Ÿø‰Ÿø‰Ÿøë…:O-;©S5Fª Î¦opêZszuLV2öE^ñg¥
+Ù€b+c»ÛÜ†øn3­ËÎ¿Åwûä²á2hğ?ñ?ñ?ñ×2?üb”^ÿ…S5Ú*˜;…õ?ucâøJ1pïÆä“2ƒ§‘PÀã¢„Í/èõT×'~â'~â'~â¯u~ø#ô¨C˜¯ÿF³SuåÖ¿d©¿Qª»7Äİ½Ş<y½)M(–)p}¼ËÒ+Òu~Âñ¶nyÄ¡àq	ñ?ñ?ññ¯îM²¡áÈX§*èâŸQÈc})ãÚQ¨#¨+¡¾kNYáæäÔ»7$‡ËÊ”(t
+Š§˜œâ0 Šæ±„Å•˜¿;}ÈüD!~â'~â'~â¯ş·Oç«2¢3dşMMÿş«Tæ·%Øûg
+×µÒPGúã>øF±JWö[S"4•â}2‰:½ª|ªüˆŸø‰Ÿø‰Ÿøk‘ÿ^¾}üfõşkÖ”zçL-éˆŞ±ZÕ›dïpg§¿0\µòCİLmrÖ'—?Æ*3Û’_Ò”¸1ÅÇÈª)ØHeë’&7	û¢ÈŸø‰Ÿø‰Ÿø‰¿Nø—u&X²ŠN	=Úye€½¸7Ã¶'*v¢–v&ÕÒáÕŞp•¿êƒ:ºqÔ×úÄMğ‰baÂÔÉ¥“×ÅdjÅÆ6Š'ûtdòºşrŒ·½ÓÛ±¬<AEU~ÕõˆŸø‰Ÿø‰Ÿøk™ÿ™Ó#¶–¼<Ù?ÈÏØ+³ìéic´	F±æ´$Ø­¥ÿ\³%Å~´+Ã~y ËÚ/ÙÇ©!6’áY^'b}ƒ/‹"pÏìU©Á4(±€¢¨$lPå§â'~â'~â'şzããXQ(¨—î›¯Å¢
+ßİÇ¾Ä3ÜcxÒÈ£vKÅqa:W×ˆÅë‰ç+£¸å!~â'~â'~â¯şÆsù1ïL5œÍ»õĞ”Ø»ò8û›X”áîı7y}âÚ$?…á}Rq¦Ÿd*b+_œÿ¤uvŒ·µ¯øzö>™ˆé‰Ÿø‰Ÿø‰Ÿøëœ«¾OcÖ™êı¤`ŒØ9õ¿>¹5şµX5Â½-ñ‰¼ÒSº¨¬d™Â'•·ãÂveB•_ô×#~â'~â'~â¯ş{Ö÷ÅXt¦îYïªŸôÔ¦Ä¤X5Ã”ñ¹übE¹‚TÌ€UùOlì/Çx[¿<B~æµ ÆÛ•–ø‰Ÿø‰Ÿø‰¿–øášğêkL½æsé?^œ².ş@l$Â”‰U“Ö'†E4kÅ%£°b¼mwœ#1`uşNr¥dŠ'	ûdÇ•MüÄOüÄOüÄ_‡üo­ÿ‰êoÍºù×Ç‡'7%VÇF2L\—X^6·E±ã‰–g<l¥)<reş‚¸ÎòWŠP^â'~â'~â'şzáÿ§]i–,Õ#LÏp67¢8¹q„©òHUc|.WxJ×à&4Ú1ŞöòÀ' X'½ûúÈ¨4x¢=Ü§—^y}â'~â'~â'şÚå_Ò‘`Çª¸¢úH`&	zÄ^óy…Éëã'6Æ¯É8ÁÜ€Œ6óÅô¢Á©$èùªôAËOüÄOüÄOüÄ_küw¯ïgÿu2W•?T© e†)ëdüñë“ª==È’
+Ü©Ú3!€rGƒDİÀˆŸø‰Ÿø‰Ÿøë•ÿëİ	vàZíVA™¡ì2şIñ½“«´4B¥aÂ>ö¥‰ë¯ú)p|ƒãíjLØëGñxaßí(ñ?ñ?ñÿíæqOš}ıs« Œÿº;íÉÏ}–×Àw‰Ö0±1¹dBcü†¡DK™Â¶‡‚Ç7Ü*ÇxÛëx)Ÿ[Şù	a¤õ9ß]^!=Ş'i`¢?ñ?ñ?ñ×#ÿ”õıìgû2ìÓÔà¨s¤ LP6(£Œ‡×ËÍ‰ë"úo¾ªÏ«Úü[îT½9~]|x|(…:Ğ%À•Ÿx¾J\åÁ’ë¹Î'~â'~â'~â¯ş‰·Ø»ÓìĞõÛÿ*Ê e2IùÁ'YkB[ò«±Z““÷Œkì?h)`œ© ˆñ¶×qQ RÆ¡
+Âûdù‰úúbş‚AªÊCüÄOüÄOüÄ_¯üğõÜoeGtÔ
+®×\ÒPğ÷š´.95VËae#û"y‚WøÙ°
+‡âqåó¢3wz|÷õ‚æGüÄOüÄOüÄ?øîŠ³_îÏ°Í—
+,áZVä	y?Ü•Pò€ï1±1ş$ø"±z	 3±!ñÈø†[G-İµöV9.mÛ±LpônÄ¼¾ãmÏòÙûäç£XãúÄOüÄOüÄOüõÎ¯ŞVt&Øw¤Øë‡³¬ù|í¿VdgúÙåô ëÏ±âà°!°ûà¤´¯Î°äç®èŒ×Ğâo¼ulBã­ÕuåH‰;˜_·.1ŸWÊZ.9KYR…	¢R°Ò û.ßeª¯Áª<vÿãbƒ…ø‰Ÿø‰Ÿø‰Ÿø+ãßÏq††»À×ˆ¥0¡‘İ1®1şä¸Æş­ããb…¹+]j ş<?§A©"¨D_^â'~â'~â'ş±ÃÏÏä²mÂºøš	·îˆQˆÅîma_æ•±pÜÚş_İÕĞË°»BûíoWªTAAw®µã;Í4w†1…ÁÏø‰Ÿø‰Ÿø‰ó7Æ‡¹_aüºä¢)ì+äAi8Xããîj¼µúÎµı/qÅ®å•¹ëÎ†[GîZÛWî.¬pl•ˆh@b~ªãQ_¯Úç?ñ?ñ?ñ~~O7îíü_º×ßÚ¯ğîlè™o?:n}|"ø£Õoùÿ‹µŞrujú    IEND®B`‚
+------MultipartBoundary--mS6LKizeQ8IE5y3xAQoqRLsux71kipjNUs9WpsmKX0----
+Content-Type: text/html
+Content-ID: <frame-9C37C9598E43A388CDB970245DE112A8@mhtml.blink>
+Content-Transfer-Encoding: binary
+Content-Location: https://ghbtns.com/github-btn.html?user=celery&repo=celery&type=watch&count=true&size=large
+
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="cid:css-456e736f-88f1-46bf-bd95-e64dc8e73f97@mhtml.blink" /><title>Star celery/celery on GitHub</title></head><body><span class="github-btn github-stargazers github-btn-large"><a class="gh-btn" href="https://github.com/celery/celery" rel="noopener noreferrer" target="_blank" aria-label="Star celery/celery on GitHub"><span class="gh-ico" aria-hidden="true"></span> <span class="gh-text">Star</span> </a><a class="gh-count" href="https://github.com/celery/celery/stargazers" rel="noopener noreferrer" target="_blank" aria-label="24,776 stargazers on GitHub" style="display: block;">24,776</a></span></body></html>
+------MultipartBoundary--mS6LKizeQ8IE5y3xAQoqRLsux71kipjNUs9WpsmKX0----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: cid:css-456e736f-88f1-46bf-bd95-e64dc8e73f97@mhtml.blink
+
+@charset "utf-8";
+
+body { padding: 0px; margin: 0px; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 11px; font-weight: 700; line-height: 14px; }
+
+.github-btn { height: 20px; overflow: hidden; }
+
+.gh-btn, .gh-count, .gh-ico { float: left; }
+
+.gh-btn, .gh-count { padding: 2px 5px 2px 4px; color: rgb(51, 51, 51); text-decoration: none; white-space: nowrap; cursor: pointer; border-radius: 3px; }
+
+.gh-btn { background-color: rgb(238, 238, 238); background-image: linear-gradient(rgb(252, 252, 252) 0px, rgb(238, 238, 238) 100%); background-repeat: no-repeat; border: 1px solid rgb(213, 213, 213); }
+
+.gh-btn:focus, .gh-btn:hover { text-decoration: none; background-color: rgb(221, 221, 221); background-image: linear-gradient(rgb(238, 238, 238) 0px, rgb(221, 221, 221) 100%); border-color: rgb(204, 204, 204); }
+
+.gh-btn:active { background-color: rgb(220, 220, 220); background-image: none; border-color: rgb(181, 181, 181); box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px inset; }
+
+.gh-ico { width: 14px; height: 14px; margin-right: 4px; background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='12 12 40 40'%3e%3cpath fill='%23333' d='M32 13.4c-10.5 0-19 8.5-19 19 0 8.4 5.5 15.5 13 18 1 .2 1.3-.4 1.3-.9v-3.2c-5.3 1.1-6.4-2.6-6.4-2.6-.9-2.1-2.1-2.7-2.1-2.7-1.7-1.2.1-1.1.1-1.1 1.9.1 2.9 2 2.9 2 1.7 2.9 4.5 2.1 5.5 1.6.2-1.2.7-2.1 1.2-2.6-4.2-.5-8.7-2.1-8.7-9.4 0-2.1.7-3.7 2-5.1-.2-.5-.8-2.4.2-5 0 0 1.6-.5 5.2 2 1.5-.4 3.1-.7 4.8-.7 1.6 0 3.3.2 4.7.7 3.6-2.4 5.2-2 5.2-2 1 2.6.4 4.6.2 5 1.2 1.3 2 3 2 5.1 0 7.3-4.5 8.9-8.7 9.4.7.6 1.3 1.7 1.3 3.5v5.2c0 .5.4 1.1 1.3.9 7.5-2.6 13-9.7 13-18.1 0-10.5-8.5-19-19-19z'/%3e%3c/svg%3e") 0px 0px / 100% 100% no-repeat; }
+
+.gh-count { position: relative; display: none; margin-left: 4px; background-color: rgb(250, 250, 250); border: 1px solid rgb(212, 212, 212); }
+
+.gh-count:focus, .gh-count:hover { color: rgb(3, 102, 214); }
+
+.gh-count::after, .gh-count::before { position: absolute; display: inline-block; width: 0px; height: 0px; content: ""; border-color: transparent; border-style: solid; }
+
+.gh-count::before { top: 50%; left: -3px; margin-top: -4px; border-width: 4px 4px 4px 0px; border-right-color: rgb(250, 250, 250); }
+
+.gh-count::after { top: 50%; left: -4px; z-index: -1; margin-top: -5px; border-width: 5px 5px 5px 0px; border-right-color: rgb(212, 212, 212); }
+
+.github-btn-large { height: 30px; }
+
+.github-btn-large .gh-btn, .github-btn-large .gh-count { padding: 3px 10px 3px 8px; font-size: 16px; line-height: 22px; border-radius: 4px; }
+
+.github-btn-large .gh-ico { width: 20px; height: 20px; }
+
+.github-btn-large .gh-count { margin-left: 6px; }
+
+.github-btn-large .gh-count::before { left: -5px; margin-top: -6px; border-width: 6px 6px 6px 0px; }
+
+.github-btn-large .gh-count::after { left: -6px; margin-top: -7px; border-width: 7px 7px 7px 0px; }
+
+.no-text .gh-ico { margin-right: 0px; }
+------MultipartBoundary--mS6LKizeQ8IE5y3xAQoqRLsux71kipjNUs9WpsmKX0------
